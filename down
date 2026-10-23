@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# ./down -> stop the lab (keeps images so ./up is fast next time).
+cd "$(dirname "$0")" || exit 1
+docker compose down && printf '\nStopped. Run ./up to start again, ./clean to delete everything.\n\n'

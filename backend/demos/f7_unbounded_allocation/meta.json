@@ -1,0 +1,17 @@
+{
+  "family": "F7",
+  "family_name": "Resource Exhaustion, Availability and OOM",
+  "subcategory": "Unbounded memory allocation",
+  "cwe": "CWE-770",
+  "title": "Unbounded allocation loop exhausts memory",
+  "root_cause": "Nothing in the loop limits how much memory it can claim. Given enough time or a large enough request, this consumes all memory available to the process -- the classic cause of an out-of-memory condition.",
+  "defenses": [
+    "Put an explicit maximum on every size, count, or loop bound that comes from outside the program.",
+    "Use setrlimit, cgroup memory limits, or a container memory cap as a second line of defense.",
+    "Set timeouts and rate limits on anything that can trigger repeated allocation.",
+    "Always check malloc's return value -- NULL must be handled, not just trusted away."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 6,
+  "rss_limit_mb": 100
+}

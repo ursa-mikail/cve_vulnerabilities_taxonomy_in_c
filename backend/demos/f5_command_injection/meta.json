@@ -1,0 +1,16 @@
+{
+  "family": "F5",
+  "family_name": "Injection and Input Interpretation",
+  "subcategory": "OS command injection",
+  "cwe": "CWE-78",
+  "title": "Command injection through system()",
+  "root_cause": "The host string is concatenated into a shell command line and handed to system(), which runs it through /bin/sh. Shell metacharacters in the input (like ';') are interpreted by the shell, not treated as literal text.",
+  "defenses": [
+    "Avoid system() and popen() on any data that is not a fixed, trusted string.",
+    "Use the exec-family calls (execve, execlp, ...) with an explicit argument array -- there is no shell to interpret metacharacters.",
+    "Validate with an allow-list of acceptable characters before using external input at all.",
+    "Run with least privilege, so a successful injection still has little to reach."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

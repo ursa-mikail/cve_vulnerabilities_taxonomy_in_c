@@ -1,0 +1,16 @@
+{
+  "family": "F10",
+  "family_name": "Information Exposure and Side Channels",
+  "subcategory": "Sensitive data in error messages",
+  "cwe": "CWE-209",
+  "title": "Internal file paths leaked in an error message",
+  "root_cause": "The error sent to the client embeds the exact internal path and the raw strerror() text. Neither corrupts memory, but both hand an attacker a map of the server's internals -- the leak is in what gets disclosed, not in a bug in the memory model.",
+  "defenses": [
+    "Send generic messages to the client; log full details only on the server side.",
+    "Give the client a reference ID (timestamp, request ID) they can quote to support, instead of raw internals.",
+    "Define and review a logging/response policy: never echo paths, stack traces, or raw system error text externally.",
+    "Treat log output and error responses as separate channels with separate audiences."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

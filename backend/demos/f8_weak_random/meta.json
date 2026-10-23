@@ -1,0 +1,16 @@
+{
+  "family": "F8",
+  "family_name": "Cryptography and Secrets",
+  "subcategory": "Weak / predictable randomness",
+  "cwe": "CWE-338",
+  "title": "Predictable tokens from rand() seeded by the clock",
+  "root_cause": "srand(time(NULL)) seeds the pseudo-random generator with the current second. Anyone who can estimate when the token was generated only has to try each of that day's ~86,400 possible seeds to reproduce it exactly.",
+  "defenses": [
+    "Never use rand(), random(), or any seeded PRNG for anything security-sensitive.",
+    "Use the operating system's cryptographic random source: getrandom() on Linux, arc4random_buf() on BSD/macOS.",
+    "For keys, tokens, nonces, and session IDs, go through a vetted crypto library (libsodium, OpenSSL), not raw OS calls, when the project already depends on one.",
+    "Audit every call site that currently uses rand()/srand() for a security purpose and replace it."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

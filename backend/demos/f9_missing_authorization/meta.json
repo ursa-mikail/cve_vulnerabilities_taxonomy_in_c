@@ -1,0 +1,16 @@
+{
+  "family": "F9",
+  "family_name": "Authentication, Authorization and Access Control",
+  "subcategory": "Insecure direct object reference (IDOR)",
+  "cwe": "CWE-639",
+  "title": "Reading another user's record (IDOR)",
+  "root_cause": "get_record() looks the record up by the id the caller supplied and returns it as soon as it exists. It never compares the record's owner to the authenticated requester, so any logged-in user can read any other user's data just by changing the id.",
+  "defenses": [
+    "Check ownership (or role) on every object access, on the server side, every time -- never trust an ID alone.",
+    "Return the same response (e.g. 404) whether an object is missing or simply not the caller's, so the error does not confirm which IDs exist.",
+    "Centralize authorization in one function every handler must call, instead of scattering ad-hoc checks.",
+    "Write negative tests: user A requesting user B's object should always fail."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

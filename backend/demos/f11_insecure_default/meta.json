@@ -1,0 +1,16 @@
+{
+  "family": "F11",
+  "family_name": "Supply Chain, Configuration and Integrity",
+  "subcategory": "Insecure default configuration",
+  "cwe": "CWE-1188",
+  "title": "Shipped defaults: open to the world, admin on, no password",
+  "root_cause": "The program's out-of-the-box configuration binds to every network interface, turns on an administrative feature, and accepts an empty password -- and nothing refuses to start in that state. Most deployments run with defaults untouched, so the default IS the real-world security posture for a large share of installs.",
+  "defenses": [
+    "Make the safe choice the default: bind to localhost, disable admin/debug features, require explicit opt-in.",
+    "Validate configuration at startup and refuse to run (fail closed) in a clearly unsafe combination.",
+    "Document every default clearly, and treat changing an insecure default as a breaking-but-necessary change.",
+    "Scan shipped configuration files and container images for known-bad defaults as part of release."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

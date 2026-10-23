@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: ./backend
+    container_name: cve-lab-backend
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:exec,uid=1000,gid=1000,mode=1777,size=200m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 1.0
+    expose:
+      - "4000"
+
+  frontend:
+    build: ./frontend
+    container_name: cve-lab-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"

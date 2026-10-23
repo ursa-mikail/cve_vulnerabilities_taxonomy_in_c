@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# ./up  -> build and start the lab, then tell you exactly where to go.
+cd "$(dirname "$0")" || exit 1
+say() { printf '\n\033[1m%s\033[0m\n' "$*"; }
+fail() { printf '\n\033[31mERROR:\033[0m %s\n\n' "$*"; exit 1; }
+
+command -v docker >/dev/null 2>&1 || fail "Docker is not installed. Get it at https://docs.docker.com/get-docker/"
+docker info >/dev/null 2>&1       || fail "Docker is installed but not running. Start Docker Desktop (or the docker service) and run ./up again."
+docker compose version >/dev/null 2>&1 || fail "The 'docker compose' plugin is missing (the old 'docker-compose' is not supported)."
+
+say "[1/3] Building and starting containers (first run takes a few minutes)..."
+docker compose up --build -d || fail "Build failed. Run ./logs, or ./clean then ./up to start fresh."
+
+say "[2/3] Waiting for the lab to become ready..."
+for i in $(seq 1 60); do
+  if curl -fsS http://localhost:8080/api/taxonomy >/dev/null 2>&1; then ok=1; break; fi
+  sleep 1
+done
+[ "${ok:-0}" = 1 ] || fail "Containers started but the API did not answer in 60s. Run ./logs to see why."
+
+say "[3/3] READY  ->  open  http://localhost:8080"
+echo "   ./down   stop the lab (keeps images, fast restart)"
+echo "   ./clean  stop and delete everything this lab created"
+echo "   ./logs   watch live logs"
+echo

@@ -1,0 +1,16 @@
+{
+  "family": "F4",
+  "family_name": "Type and Data Representation Errors",
+  "subcategory": "sizeof applied to a pointer",
+  "cwe": "CWE-467",
+  "title": "sizeof(pointer) silently wipes less than intended",
+  "root_cause": "Inside wipe(), buf is a function parameter -- a pointer -- so sizeof(buf) is the size of a pointer (commonly 8 bytes on 64-bit systems), not the size of the array the caller passed in. No crash happens; the bug is silent.",
+  "defenses": [
+    "Never use sizeof on a pointer parameter to mean \"the size of what it points to\".",
+    "Pass the real capacity explicitly as a separate parameter.",
+    "Use -Wsizeof-pointer-memaccess (part of -Wall) to catch this pattern at compile time.",
+    "For secrets specifically, use explicit_bzero or memset_s, which also resist compiler removal."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

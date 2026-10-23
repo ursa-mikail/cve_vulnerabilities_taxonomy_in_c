@@ -1,0 +1,3922 @@
+{
+ "generated_from": "CVE Program full record set (CVEProject/cvelistV5) + NVD CWE/CVSS enrichment",
+ "total_cves": 412863,
+ "published_cves": 394234,
+ "rejected_cves": 18629,
+ "unclassified_cves": 21769,
+ "year_range": [
+  "1999",
+  "2026"
+ ],
+ "families": [
+  {
+   "id": "F1",
+   "name": "Spatial Memory Safety",
+   "total": 55888,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 304
+    },
+    {
+     "year": "2000",
+     "count": 245
+    },
+    {
+     "year": "2001",
+     "count": 317
+    },
+    {
+     "year": "2002",
+     "count": 559
+    },
+    {
+     "year": "2003",
+     "count": 402
+    },
+    {
+     "year": "2004",
+     "count": 534
+    },
+    {
+     "year": "2005",
+     "count": 645
+    },
+    {
+     "year": "2006",
+     "count": 804
+    },
+    {
+     "year": "2007",
+     "count": 1086
+    },
+    {
+     "year": "2008",
+     "count": 791
+    },
+    {
+     "year": "2009",
+     "count": 739
+    },
+    {
+     "year": "2010",
+     "count": 767
+    },
+    {
+     "year": "2011",
+     "count": 939
+    },
+    {
+     "year": "2012",
+     "count": 895
+    },
+    {
+     "year": "2013",
+     "count": 960
+    },
+    {
+     "year": "2014",
+     "count": 1138
+    },
+    {
+     "year": "2015",
+     "count": 1547
+    },
+    {
+     "year": "2016",
+     "count": 1880
+    },
+    {
+     "year": "2017",
+     "count": 3184
+    },
+    {
+     "year": "2018",
+     "count": 2877
+    },
+    {
+     "year": "2019",
+     "count": 2889
+    },
+    {
+     "year": "2020",
+     "count": 3129
+    },
+    {
+     "year": "2021",
+     "count": 3718
+    },
+    {
+     "year": "2022",
+     "count": 4240
+    },
+    {
+     "year": "2023",
+     "count": 4332
+    },
+    {
+     "year": "2024",
+     "count": 4206
+    },
+    {
+     "year": "2025",
+     "count": 4348
+    },
+    {
+     "year": "2026",
+     "count": 8413
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-787",
+     "name": "Out-of-bounds Write",
+     "count": 11773
+    },
+    {
+     "cwe": "CWE-119",
+     "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+     "count": 10200
+    },
+    {
+     "cwe": "CWE-125",
+     "name": "Out-of-bounds Read",
+     "count": 9799
+    },
+    {
+     "cwe": "CWE-120",
+     "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+     "count": 4361
+    },
+    {
+     "cwe": "CWE-121",
+     "name": "Stack-based Buffer Overflow",
+     "count": 3843
+    },
+    {
+     "cwe": "CWE-122",
+     "name": "Heap-based Buffer Overflow",
+     "count": 3426
+    },
+    {
+     "cwe": "CWE-20",
+     "name": "Improper Input Validation",
+     "count": 1428
+    },
+    {
+     "cwe": "CWE-129",
+     "name": "Improper Validation of Array Index",
+     "count": 643
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Out-of-bounds write",
+     "count": 20606
+    },
+    {
+     "name": "Classic buffer overflow (stack/heap)",
+     "count": 11897
+    },
+    {
+     "name": "Out-of-bounds read / over-read",
+     "count": 11099
+    },
+    {
+     "name": "Memory corruption (unspecified)",
+     "count": 10937
+    },
+    {
+     "name": "Index / length validation",
+     "count": 822
+    },
+    {
+     "name": "Buffer bounds (generic)",
+     "count": 499
+    }
+   ],
+   "severity": {
+    "CRITICAL": 6698,
+    "HIGH": 33524,
+    "MEDIUM": 14028,
+    "LOW": 1287
+   },
+   "high_confidence_pct": 63.9,
+   "examples": [
+    {
+     "id": "CVE-2006-2371",
+     "title": "Buffer overflow in the Remote Access Connection Manager service (RASMAN) service in Microsoft Windows 2000 SP4, XP SP1 and SP2, and Server 2...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2371"
+    },
+    {
+     "id": "CVE-2006-2579",
+     "title": "Unspecified vulnerability in HP OpenView Storage Data Protector 5.1 and 5.5 allows remote attackers to execute arbitrary code via unknown ve...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2579"
+    },
+    {
+     "id": "CVE-2006-2926",
+     "title": "Stack-based buffer overflow in the WWW Proxy Server of Qbik WinGate 6.1.1.1077 allows remote attackers to cause a denial of service and poss...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2926"
+    },
+    {
+     "id": "CVE-2006-2910",
+     "title": "Buffer overflow in jetAudio 6.2.6.8330 (Basic), and possibly other versions, allows user-assisted attackers to execute arbitrary code via an...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2910"
+    },
+    {
+     "id": "CVE-2006-2200",
+     "title": "Stack-based buffer overflow in libmms, as used by (a) MiMMS 0.0.9 and (b) xine-lib 1.1.0 and earlier, allows remote attackers to cause a den...",
+     "cwe": "CWE-119",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2200"
+    },
+    {
+     "id": "CVE-2006-2492",
+     "title": "Buffer overflow in Microsoft Word in Office 2000 SP3, Office XP SP3, Office 2003 Sp1 and SP2, and Microsoft Works Suites through 2006, allow...",
+     "cwe": "CWE-120",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2492"
+    }
+   ]
+  },
+  {
+   "id": "F2",
+   "name": "Temporal Memory Safety",
+   "total": 21611,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 2
+    },
+    {
+     "year": "2000",
+     "count": 2
+    },
+    {
+     "year": "2001",
+     "count": 3
+    },
+    {
+     "year": "2002",
+     "count": 16
+    },
+    {
+     "year": "2003",
+     "count": 17
+    },
+    {
+     "year": "2004",
+     "count": 40
+    },
+    {
+     "year": "2005",
+     "count": 46
+    },
+    {
+     "year": "2006",
+     "count": 97
+    },
+    {
+     "year": "2007",
+     "count": 124
+    },
+    {
+     "year": "2008",
+     "count": 109
+    },
+    {
+     "year": "2009",
+     "count": 114
+    },
+    {
+     "year": "2010",
+     "count": 226
+    },
+    {
+     "year": "2011",
+     "count": 311
+    },
+    {
+     "year": "2012",
+     "count": 181
+    },
+    {
+     "year": "2013",
+     "count": 269
+    },
+    {
+     "year": "2014",
+     "count": 239
+    },
+    {
+     "year": "2015",
+     "count": 439
+    },
+    {
+     "year": "2016",
+     "count": 505
+    },
+    {
+     "year": "2017",
+     "count": 714
+    },
+    {
+     "year": "2018",
+     "count": 909
+    },
+    {
+     "year": "2019",
+     "count": 885
+    },
+    {
+     "year": "2020",
+     "count": 779
+    },
+    {
+     "year": "2021",
+     "count": 1659
+    },
+    {
+     "year": "2022",
+     "count": 1786
+    },
+    {
+     "year": "2023",
+     "count": 1728
+    },
+    {
+     "year": "2024",
+     "count": 2178
+    },
+    {
+     "year": "2025",
+     "count": 2287
+    },
+    {
+     "year": "2026",
+     "count": 5946
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-416",
+     "name": "Use After Free",
+     "count": 9096
+    },
+    {
+     "cwe": "CWE-476",
+     "name": "NULL Pointer Dereference",
+     "count": 5632
+    },
+    {
+     "cwe": "CWE-415",
+     "name": "Double Free",
+     "count": 891
+    },
+    {
+     "cwe": "CWE-908",
+     "name": "Use of Uninitialized Resource",
+     "count": 830
+    },
+    {
+     "cwe": "CWE-399",
+     "name": "",
+     "count": 518
+    },
+    {
+     "cwe": "CWE-665",
+     "name": "Improper Initialization",
+     "count": 343
+    },
+    {
+     "cwe": "CWE-822",
+     "name": "Untrusted Pointer Dereference",
+     "count": 291
+    },
+    {
+     "cwe": "CWE-824",
+     "name": "Access of Uninitialized Pointer",
+     "count": 276
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Use after free",
+     "count": 10811
+    },
+    {
+     "name": "NULL / invalid pointer dereference",
+     "count": 7479
+    },
+    {
+     "name": "Uninitialized memory or variable",
+     "count": 1969
+    },
+    {
+     "name": "Double free / invalid free",
+     "count": 1237
+    },
+    {
+     "name": "Use-after-free / double free",
+     "count": 60
+    },
+    {
+     "name": "NULL dereference / uninitialized use",
+     "count": 46
+    }
+   ],
+   "severity": {
+    "CRITICAL": 1581,
+    "HIGH": 11337,
+    "MEDIUM": 7054,
+    "LOW": 607
+   },
+   "high_confidence_pct": 83.4,
+   "examples": [
+    {
+     "id": "CVE-2006-2788",
+     "title": "Double free vulnerability in the getRawDER function for nsIX509Cert in Firefox allows remote attackers to cause a denial of service (hang) a...",
+     "cwe": "CWE-119",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2788"
+    },
+    {
+     "id": "CVE-2006-2410",
+     "title": "raydium_network_netcall_exec function in network.c in Raydium SVN revision 312 and earlier allows remote attackers to cause a denial of serv...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2410"
+    },
+    {
+     "id": "CVE-2006-2444",
+     "title": "The snmp_trap_decode function in the SNMP NAT helper for Linux kernel before 2.6.16.18 allows remote attackers to cause a denial of service ...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2444"
+    },
+    {
+     "id": "CVE-2006-2781",
+     "title": "Double free vulnerability in nsVCard.cpp in Mozilla Thunderbird before 1.5.0.4 and SeaMonkey before 1.0.2 allows remote attackers to cause a...",
+     "cwe": "CWE-119",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2781"
+    },
+    {
+     "id": "CVE-2006-2661",
+     "title": "ftutil.c in Freetype before 2.2 allows remote attackers to cause a denial of service (crash) via a crafted font file that triggers a null de...",
+     "cwe": "CWE-476",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2661"
+    },
+    {
+     "id": "CVE-2006-2789",
+     "title": "Evolution 2.2.x and 2.3.x in GNOME 2.7 and 2.8, when \"load images if sender in addressbook\" is enabled, allows remote attackers to cause a d...",
+     "cwe": "",
+     "severity": "LOW",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2789"
+    }
+   ]
+  },
+  {
+   "id": "F3",
+   "name": "Integer and Numeric Errors",
+   "total": 6791,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 0
+    },
+    {
+     "year": "2000",
+     "count": 1
+    },
+    {
+     "year": "2001",
+     "count": 6
+    },
+    {
+     "year": "2002",
+     "count": 23
+    },
+    {
+     "year": "2003",
+     "count": 35
+    },
+    {
+     "year": "2004",
+     "count": 66
+    },
+    {
+     "year": "2005",
+     "count": 60
+    },
+    {
+     "year": "2006",
+     "count": 110
+    },
+    {
+     "year": "2007",
+     "count": 129
+    },
+    {
+     "year": "2008",
+     "count": 133
+    },
+    {
+     "year": "2009",
+     "count": 142
+    },
+    {
+     "year": "2010",
+     "count": 134
+    },
+    {
+     "year": "2011",
+     "count": 125
+    },
+    {
+     "year": "2012",
+     "count": 110
+    },
+    {
+     "year": "2013",
+     "count": 126
+    },
+    {
+     "year": "2014",
+     "count": 121
+    },
+    {
+     "year": "2015",
+     "count": 151
+    },
+    {
+     "year": "2016",
+     "count": 230
+    },
+    {
+     "year": "2017",
+     "count": 300
+    },
+    {
+     "year": "2018",
+     "count": 709
+    },
+    {
+     "year": "2019",
+     "count": 266
+    },
+    {
+     "year": "2020",
+     "count": 270
+    },
+    {
+     "year": "2021",
+     "count": 470
+    },
+    {
+     "year": "2022",
+     "count": 378
+    },
+    {
+     "year": "2023",
+     "count": 413
+    },
+    {
+     "year": "2024",
+     "count": 432
+    },
+    {
+     "year": "2025",
+     "count": 407
+    },
+    {
+     "year": "2026",
+     "count": 1444
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-190",
+     "name": "Integer Overflow or Wraparound",
+     "count": 3462
+    },
+    {
+     "cwe": "CWE-189",
+     "name": "Numeric Error -> CWE-190 Integer Overflow",
+     "count": 871
+    },
+    {
+     "cwe": "CWE-191",
+     "name": "Integer Underflow (Wrap or Wraparound)",
+     "count": 567
+    },
+    {
+     "cwe": "CWE-369",
+     "name": "Divide By Zero",
+     "count": 477
+    },
+    {
+     "cwe": "CWE-131",
+     "name": "Incorrect Calculation of Buffer Size",
+     "count": 197
+    },
+    {
+     "cwe": "CWE-119",
+     "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+     "count": 106
+    },
+    {
+     "cwe": "CWE-681",
+     "name": "Incorrect Conversion between Numeric Types",
+     "count": 105
+    },
+    {
+     "cwe": "CWE-680",
+     "name": "Integer Overflow to Buffer Overflow",
+     "count": 102
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Integer overflow / wraparound",
+     "count": 5523
+    },
+    {
+     "name": "Divide by zero",
+     "count": 477
+    },
+    {
+     "name": "Integer overflow / divide-by-zero",
+     "count": 303
+    },
+    {
+     "name": "Incorrect calculation",
+     "count": 262
+    },
+    {
+     "name": "Signedness / truncation / conversion",
+     "count": 226
+    }
+   ],
+   "severity": {
+    "CRITICAL": 602,
+    "HIGH": 3691,
+    "MEDIUM": 2097,
+    "LOW": 252
+   },
+   "high_confidence_pct": 75.8,
+   "examples": [
+    {
+     "id": "CVE-2006-2971",
+     "title": "Integer overflow in the recv_packet function in 0verkill 0.16 allows remote attackers to cause a denial of service (daemon crash) via a UDP ...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2971"
+    },
+    {
+     "id": "CVE-2006-2023",
+     "title": "Integer overflow in the RTSP_msg_len function in rtsp/RTSP_msg_len.c in Fenice 1.10 and earlier allows remote attackers to cause a denial of...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2023"
+    },
+    {
+     "id": "CVE-2006-2197",
+     "title": "Integer overflow in wv2 before 0.2.3 might allow context-dependent attackers to execute arbitrary code via a crafted Microsoft Word document...",
+     "cwe": "CWE-189",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2197"
+    },
+    {
+     "id": "CVE-2006-2304",
+     "title": "Multiple integer overflows in the DPRPC library (DPRPCW32.DLL) in Novell Client 4.83 SP3, 4.90 SP2 and 4.91 SP2 allow remote attackers to ex...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2304"
+    },
+    {
+     "id": "CVE-2006-2489",
+     "title": "Integer overflow in CGI scripts in Nagios 1.x before 1.4.1 and 2.x before 2.3.1 allows remote attackers to cause a denial of service (crash)...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2489"
+    },
+    {
+     "id": "CVE-2006-2083",
+     "title": "Integer overflow in the receive_xattr function in the extended attributes patch (xattr.c) for rsync before 2.6.8 might allow attackers to ex...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2083"
+    }
+   ]
+  },
+  {
+   "id": "F4",
+   "name": "Type and Data Representation Errors",
+   "total": 1275,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 0
+    },
+    {
+     "year": "2000",
+     "count": 0
+    },
+    {
+     "year": "2001",
+     "count": 0
+    },
+    {
+     "year": "2002",
+     "count": 0
+    },
+    {
+     "year": "2003",
+     "count": 0
+    },
+    {
+     "year": "2004",
+     "count": 0
+    },
+    {
+     "year": "2005",
+     "count": 0
+    },
+    {
+     "year": "2006",
+     "count": 0
+    },
+    {
+     "year": "2007",
+     "count": 0
+    },
+    {
+     "year": "2008",
+     "count": 0
+    },
+    {
+     "year": "2009",
+     "count": 0
+    },
+    {
+     "year": "2010",
+     "count": 4
+    },
+    {
+     "year": "2011",
+     "count": 13
+    },
+    {
+     "year": "2012",
+     "count": 3
+    },
+    {
+     "year": "2013",
+     "count": 3
+    },
+    {
+     "year": "2014",
+     "count": 5
+    },
+    {
+     "year": "2015",
+     "count": 48
+    },
+    {
+     "year": "2016",
+     "count": 32
+    },
+    {
+     "year": "2017",
+     "count": 44
+    },
+    {
+     "year": "2018",
+     "count": 114
+    },
+    {
+     "year": "2019",
+     "count": 69
+    },
+    {
+     "year": "2020",
+     "count": 56
+    },
+    {
+     "year": "2021",
+     "count": 94
+    },
+    {
+     "year": "2022",
+     "count": 61
+    },
+    {
+     "year": "2023",
+     "count": 119
+    },
+    {
+     "year": "2024",
+     "count": 127
+    },
+    {
+     "year": "2025",
+     "count": 141
+    },
+    {
+     "year": "2026",
+     "count": 342
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-843",
+     "name": "Access of Resource Using Incompatible Type ('Type Confusion')",
+     "count": 905
+    },
+    {
+     "cwe": "CWE-704",
+     "name": "Incorrect Type Conversion or Cast",
+     "count": 198
+    },
+    {
+     "cwe": "CWE-758",
+     "name": "Reliance on Undefined, Unspecified, or Implementation-Defined Behavior",
+     "count": 24
+    },
+    {
+     "cwe": "CWE-1025",
+     "name": "Comparison Using Wrong Factors",
+     "count": 18
+    },
+    {
+     "cwe": "CWE-474",
+     "name": "Use of Function with Inconsistent Implementations",
+     "count": 13
+    },
+    {
+     "cwe": "CWE-14",
+     "name": "Compiler Removal of Code to Clear Buffers",
+     "count": 10
+    },
+    {
+     "cwe": "CWE-20",
+     "name": "Improper Input Validation",
+     "count": 6
+    },
+    {
+     "cwe": "CWE-1038",
+     "name": "Insecure Automated Optimizations",
+     "count": 6
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Type confusion",
+     "count": 979
+    },
+    {
+     "name": "Incorrect type conversion or cast",
+     "count": 202
+    },
+    {
+     "name": "Undefined behavior / data layout",
+     "count": 83
+    },
+    {
+     "name": "Wrong sizeof / pointer arithmetic",
+     "count": 8
+    },
+    {
+     "name": "Type confusion / wrong data layout",
+     "count": 3
+    }
+   ],
+   "severity": {
+    "CRITICAL": 138,
+    "HIGH": 828,
+    "MEDIUM": 259,
+    "LOW": 44
+   },
+   "high_confidence_pct": 90.6,
+   "examples": [
+    {
+     "id": "CVE-2015-2728",
+     "title": "The IndexedDatabaseManager class in the IndexedDB implementation in Mozilla Firefox before 39.0 and Firefox ESR 31.x before 31.8 and 38.x be...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-2728"
+    },
+    {
+     "id": "CVE-2015-8439",
+     "title": "The SharedObject object implementation in Adobe Flash Player before 18.0.0.268 and 19.x and 20.x before 20.0.0.228 on Windows and OS X and b...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-8439"
+    },
+    {
+     "id": "CVE-2015-8644",
+     "title": "Adobe Flash Player before 18.0.0.324 and 19.x and 20.x before 20.0.0.267 on Windows and OS X and before 11.2.202.559 on Linux, Adobe AIR bef...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-8644"
+    },
+    {
+     "id": "CVE-2015-8456",
+     "title": "Adobe Flash Player before 18.0.0.268 and 19.x and 20.x before 20.0.0.228 on Windows and OS X and before 11.2.202.554 on Linux, Adobe AIR bef...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-8456"
+    },
+    {
+     "id": "CVE-2015-1242",
+     "title": "The ReduceTransitionElementsKind function in hydrogen-check-elimination.cc in Google V8 before 4.2.77.8, as used in Google Chrome before 42....",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-1242"
+    },
+    {
+     "id": "CVE-2015-1230",
+     "title": "The getHiddenProperty function in bindings/core/v8/V8EventListenerList.h in Blink, as used in Google Chrome before 41.0.2272.76, has a name ...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-1230"
+    }
+   ]
+  },
+  {
+   "id": "F5",
+   "name": "Injection and Input Interpretation",
+   "total": 135184,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 97
+    },
+    {
+     "year": "2000",
+     "count": 86
+    },
+    {
+     "year": "2001",
+     "count": 254
+    },
+    {
+     "year": "2002",
+     "count": 477
+    },
+    {
+     "year": "2003",
+     "count": 325
+    },
+    {
+     "year": "2004",
+     "count": 742
+    },
+    {
+     "year": "2005",
+     "count": 1882
+    },
+    {
+     "year": "2006",
+     "count": 3827
+    },
+    {
+     "year": "2007",
+     "count": 2820
+    },
+    {
+     "year": "2008",
+     "count": 3684
+    },
+    {
+     "year": "2009",
+     "count": 2098
+    },
+    {
+     "year": "2010",
+     "count": 1881
+    },
+    {
+     "year": "2011",
+     "count": 1124
+    },
+    {
+     "year": "2012",
+     "count": 1603
+    },
+    {
+     "year": "2013",
+     "count": 1660
+    },
+    {
+     "year": "2014",
+     "count": 2208
+    },
+    {
+     "year": "2015",
+     "count": 2070
+    },
+    {
+     "year": "2016",
+     "count": 1755
+    },
+    {
+     "year": "2017",
+     "count": 3599
+    },
+    {
+     "year": "2018",
+     "count": 4723
+    },
+    {
+     "year": "2019",
+     "count": 4721
+    },
+    {
+     "year": "2020",
+     "count": 6016
+    },
+    {
+     "year": "2021",
+     "count": 6899
+    },
+    {
+     "year": "2022",
+     "count": 8568
+    },
+    {
+     "year": "2023",
+     "count": 11428
+    },
+    {
+     "year": "2024",
+     "count": 16894
+    },
+    {
+     "year": "2025",
+     "count": 19227
+    },
+    {
+     "year": "2026",
+     "count": 24516
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-79",
+     "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+     "count": 48605
+    },
+    {
+     "cwe": "CWE-89",
+     "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+     "count": 21379
+    },
+    {
+     "cwe": "CWE-22",
+     "name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+     "count": 10256
+    },
+    {
+     "cwe": "CWE-78",
+     "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+     "count": 6727
+    },
+    {
+     "cwe": "CWE-94",
+     "name": "Improper Control of Generation of Code ('Code Injection')",
+     "count": 5753
+    },
+    {
+     "cwe": "CWE-434",
+     "name": "Unrestricted Upload of File with Dangerous Type",
+     "count": 4297
+    },
+    {
+     "cwe": "CWE-918",
+     "name": "Server-Side Request Forgery (SSRF)",
+     "count": 3698
+    },
+    {
+     "cwe": "CWE-502",
+     "name": "Deserialization of Untrusted Data",
+     "count": 3399
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Cross-site scripting (XSS)",
+     "count": 52458
+    },
+    {
+     "name": "SQL injection",
+     "count": 23640
+    },
+    {
+     "name": "Path traversal / link following",
+     "count": 15695
+    },
+    {
+     "name": "OS command / argument injection",
+     "count": 10177
+    },
+    {
+     "name": "Code injection / eval / template injection",
+     "count": 6990
+    },
+    {
+     "name": "Unrestricted file upload",
+     "count": 4625
+    }
+   ],
+   "severity": {
+    "CRITICAL": 16295,
+    "HIGH": 42837,
+    "MEDIUM": 68035,
+    "LOW": 7894
+   },
+   "high_confidence_pct": 88.1,
+   "examples": [
+    {
+     "id": "CVE-2006-2533",
+     "title": "Cross-site scripting (XSS) vulnerability in (1) addWeblog.php and (2) leaveComments.php in Destiney Rated Images Script 0.5.0 does not prope...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2533"
+    },
+    {
+     "id": "CVE-2006-2364",
+     "title": "Cross-site scripting (XSS) vulnerability in the validation feature in Macromedia ColdFusion 5 and earlier allows remote attackers to inject ...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2364"
+    },
+    {
+     "id": "CVE-2006-2109",
+     "title": "Cross-site scripting (XSS) vulnerability in the parse_query_str function in include/print.php in JSBoard 2.0.10 and 2.0.11, and possibly oth...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2109"
+    },
+    {
+     "id": "CVE-2006-2758",
+     "title": "Directory traversal vulnerability in jetty 6.0.x (jetty6) beta16 allows remote attackers to read arbitrary files via a %2e%2e%5c (encoded .....",
+     "cwe": "CWE-22",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2758"
+    },
+    {
+     "id": "CVE-2006-2878",
+     "title": "The spellchecker (spellcheck.php) in DokuWiki 2006/06/04 and earlier allows remote attackers to insert and execute arbitrary PHP code via \"c...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2878"
+    },
+    {
+     "id": "CVE-2006-2157",
+     "title": "SQL injection vulnerability in gallery.php in Plogger Beta 2.1 and earlier allows remote attackers to execute arbitrary SQL commands via the...",
+     "cwe": "CWE-89",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2157"
+    }
+   ]
+  },
+  {
+   "id": "F6",
+   "name": "Concurrency and Timing",
+   "total": 5247,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 13
+    },
+    {
+     "year": "2000",
+     "count": 7
+    },
+    {
+     "year": "2001",
+     "count": 6
+    },
+    {
+     "year": "2002",
+     "count": 15
+    },
+    {
+     "year": "2003",
+     "count": 13
+    },
+    {
+     "year": "2004",
+     "count": 16
+    },
+    {
+     "year": "2005",
+     "count": 29
+    },
+    {
+     "year": "2006",
+     "count": 27
+    },
+    {
+     "year": "2007",
+     "count": 35
+    },
+    {
+     "year": "2008",
+     "count": 23
+    },
+    {
+     "year": "2009",
+     "count": 40
+    },
+    {
+     "year": "2010",
+     "count": 71
+    },
+    {
+     "year": "2011",
+     "count": 33
+    },
+    {
+     "year": "2012",
+     "count": 33
+    },
+    {
+     "year": "2013",
+     "count": 80
+    },
+    {
+     "year": "2014",
+     "count": 58
+    },
+    {
+     "year": "2015",
+     "count": 77
+    },
+    {
+     "year": "2016",
+     "count": 70
+    },
+    {
+     "year": "2017",
+     "count": 119
+    },
+    {
+     "year": "2018",
+     "count": 107
+    },
+    {
+     "year": "2019",
+     "count": 130
+    },
+    {
+     "year": "2020",
+     "count": 245
+    },
+    {
+     "year": "2021",
+     "count": 286
+    },
+    {
+     "year": "2022",
+     "count": 548
+    },
+    {
+     "year": "2023",
+     "count": 398
+    },
+    {
+     "year": "2024",
+     "count": 593
+    },
+    {
+     "year": "2025",
+     "count": 603
+    },
+    {
+     "year": "2026",
+     "count": 1572
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-362",
+     "name": "Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')",
+     "count": 2614
+    },
+    {
+     "cwe": "CWE-367",
+     "name": "Time-of-check Time-of-use (TOCTOU) Race Condition",
+     "count": 826
+    },
+    {
+     "cwe": "CWE-667",
+     "name": "Improper Locking",
+     "count": 695
+    },
+    {
+     "cwe": "CWE-377",
+     "name": "Insecure Temporary File",
+     "count": 100
+    },
+    {
+     "cwe": "CWE-591",
+     "name": "Sensitive Data Storage in Improperly Locked Memory",
+     "count": 75
+    },
+    {
+     "cwe": "CWE-379",
+     "name": "Creation of Temporary File in Directory with Insecure Permissions",
+     "count": 56
+    },
+    {
+     "cwe": "CWE-662",
+     "name": "Improper Synchronization",
+     "count": 54
+    },
+    {
+     "cwe": "CWE-378",
+     "name": "Creation of Temporary File With Insecure Permissions",
+     "count": 43
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Race condition",
+     "count": 3888
+    },
+    {
+     "name": "Locking / deadlock",
+     "count": 783
+    },
+    {
+     "name": "Race condition / locking error",
+     "count": 377
+    },
+    {
+     "name": "Insecure temporary file",
+     "count": 199
+    }
+   ],
+   "severity": {
+    "CRITICAL": 148,
+    "HIGH": 2314,
+    "MEDIUM": 2261,
+    "LOW": 292
+   },
+   "high_confidence_pct": 86.1,
+   "examples": [
+    {
+     "id": "CVE-2006-2446",
+     "title": "Race condition between the kfree_skb and __skb_unlink functions in the socket buffer handling in Linux kernel 2.6.9, and possibly other vers...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2446"
+    },
+    {
+     "id": "CVE-2006-2445",
+     "title": "Race condition in run_posix_cpu_timers in Linux kernel before 2.6.16.21 allows local users to cause a denial of service (BUG_ON crash) by ca...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2445"
+    },
+    {
+     "id": "CVE-2006-2275",
+     "title": "Linux SCTP (lksctp) before 2.6.17 allows remote attackers to cause a denial of service (deadlock) via a large number of small messages to a ...",
+     "cwe": "CWE-667",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2275"
+    },
+    {
+     "id": "CVE-2006-2094",
+     "title": "Microsoft Internet Explorer before Windows XP Service Pack 2 and Windows Server 2003 Service Pack 1, when Prompt is configured in Security S...",
+     "cwe": "CWE-362",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2094"
+    },
+    {
+     "id": "CVE-2006-2374",
+     "title": "The Server Message Block (SMB) driver (MRXSMB.SYS) in Microsoft Windows 2000 SP4, XP SP1 and SP2, and Server 2003 SP1 and earlier allows loc...",
+     "cwe": "CWE-667",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2374"
+    },
+    {
+     "id": "CVE-2006-1057",
+     "title": "Race condition in daemon/slave.c in gdm before 2.14.1 allows local users to gain privileges via a symlink attack when gdm performs chown and...",
+     "cwe": "CWE-362",
+     "severity": "LOW",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-1057"
+    }
+   ]
+  },
+  {
+   "id": "F7",
+   "name": "Resource Exhaustion, Availability and OOM",
+   "total": 28521,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 241
+    },
+    {
+     "year": "2000",
+     "count": 231
+    },
+    {
+     "year": "2001",
+     "count": 251
+    },
+    {
+     "year": "2002",
+     "count": 320
+    },
+    {
+     "year": "2003",
+     "count": 201
+    },
+    {
+     "year": "2004",
+     "count": 377
+    },
+    {
+     "year": "2005",
+     "count": 487
+    },
+    {
+     "year": "2006",
+     "count": 519
+    },
+    {
+     "year": "2007",
+     "count": 610
+    },
+    {
+     "year": "2008",
+     "count": 504
+    },
+    {
+     "year": "2009",
+     "count": 463
+    },
+    {
+     "year": "2010",
+     "count": 443
+    },
+    {
+     "year": "2011",
+     "count": 480
+    },
+    {
+     "year": "2012",
+     "count": 488
+    },
+    {
+     "year": "2013",
+     "count": 575
+    },
+    {
+     "year": "2014",
+     "count": 570
+    },
+    {
+     "year": "2015",
+     "count": 686
+    },
+    {
+     "year": "2016",
+     "count": 725
+    },
+    {
+     "year": "2017",
+     "count": 1589
+    },
+    {
+     "year": "2018",
+     "count": 1411
+    },
+    {
+     "year": "2019",
+     "count": 1150
+    },
+    {
+     "year": "2020",
+     "count": 1269
+    },
+    {
+     "year": "2021",
+     "count": 1771
+    },
+    {
+     "year": "2022",
+     "count": 2157
+    },
+    {
+     "year": "2023",
+     "count": 1799
+    },
+    {
+     "year": "2024",
+     "count": 1759
+    },
+    {
+     "year": "2025",
+     "count": 1899
+    },
+    {
+     "year": "2026",
+     "count": 5546
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-400",
+     "name": "Uncontrolled Resource Consumption",
+     "count": 3739
+    },
+    {
+     "cwe": "CWE-20",
+     "name": "Improper Input Validation",
+     "count": 2726
+    },
+    {
+     "cwe": "CWE-770",
+     "name": "Allocation of Resources Without Limits or Throttling",
+     "count": 2169
+    },
+    {
+     "cwe": "CWE-401",
+     "name": "Missing Release of Memory after Effective Lifetime",
+     "count": 1910
+    },
+    {
+     "cwe": "CWE-399",
+     "name": "",
+     "count": 1542
+    },
+    {
+     "cwe": "CWE-835",
+     "name": "Loop with Unreachable Exit Condition ('Infinite Loop')",
+     "count": 915
+    },
+    {
+     "cwe": "CWE-617",
+     "name": "Reachable Assertion",
+     "count": 877
+    },
+    {
+     "cwe": "CWE-119",
+     "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+     "count": 844
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Uncontrolled resource consumption / DoS",
+     "count": 14931
+    },
+    {
+     "name": "Memory / resource leak",
+     "count": 3609
+    },
+    {
+     "name": "Infinite loop / excessive iteration",
+     "count": 3334
+    },
+    {
+     "name": "Memory allocation without limits (OOM)",
+     "count": 3149
+    },
+    {
+     "name": "Reachable assertion / abort",
+     "count": 1040
+    },
+    {
+     "name": "Algorithmic complexity / ReDoS",
+     "count": 771
+    }
+   ],
+   "severity": {
+    "CRITICAL": 352,
+    "HIGH": 10291,
+    "MEDIUM": 15567,
+    "LOW": 1503
+   },
+   "high_confidence_pct": 45.7,
+   "examples": [
+    {
+     "id": "CVE-2006-2906",
+     "title": "The LZW decoding in the gdImageCreateFromGifPtr function in the Thomas Boutell graphics draw (GD) library (aka libgd) 2.0.33 allows remote a...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2906"
+    },
+    {
+     "id": "CVE-2006-2242",
+     "title": "acFTP 1.4 allows remote attackers to cause a denial of service (application crash) via a long string with \"{\" (brace) characters to the USER...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2242"
+    },
+    {
+     "id": "CVE-2006-2706",
+     "title": "Secure Elements Class 5 AVR server (aka C5 EVM) before 2.8.1 allows remote attackers to cause a denial of service via forged \"session start\"...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2706"
+    },
+    {
+     "id": "CVE-2006-2967",
+     "title": "Syworks SafeNET allows local users to bypass restrictions on network resource consumption by editing the policy.dat file.",
+     "cwe": "",
+     "severity": "LOW",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2967"
+    },
+    {
+     "id": "CVE-2006-2276",
+     "title": "bgpd in Quagga 0.98 and 0.99 before 20060504 allows local users to cause a denial of service (CPU consumption) via a certain sh ip bgp comma...",
+     "cwe": "CWE-399",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2276"
+    },
+    {
+     "id": "CVE-2006-2451",
+     "title": "The suid_dumpable support in Linux kernel 2.6.13 up to versions before 2.6.17.4, and 2.6.16 before 2.6.16.24, allows a local user to cause a...",
+     "cwe": "CWE-399",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2451"
+    }
+   ]
+  },
+  {
+   "id": "F8",
+   "name": "Cryptography and Secrets",
+   "total": 14609,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 44
+    },
+    {
+     "year": "2000",
+     "count": 48
+    },
+    {
+     "year": "2001",
+     "count": 61
+    },
+    {
+     "year": "2002",
+     "count": 80
+    },
+    {
+     "year": "2003",
+     "count": 39
+    },
+    {
+     "year": "2004",
+     "count": 60
+    },
+    {
+     "year": "2005",
+     "count": 114
+    },
+    {
+     "year": "2006",
+     "count": 110
+    },
+    {
+     "year": "2007",
+     "count": 116
+    },
+    {
+     "year": "2008",
+     "count": 134
+    },
+    {
+     "year": "2009",
+     "count": 138
+    },
+    {
+     "year": "2010",
+     "count": 133
+    },
+    {
+     "year": "2011",
+     "count": 140
+    },
+    {
+     "year": "2012",
+     "count": 240
+    },
+    {
+     "year": "2013",
+     "count": 267
+    },
+    {
+     "year": "2014",
+     "count": 1715
+    },
+    {
+     "year": "2015",
+     "count": 278
+    },
+    {
+     "year": "2016",
+     "count": 475
+    },
+    {
+     "year": "2017",
+     "count": 581
+    },
+    {
+     "year": "2018",
+     "count": 594
+    },
+    {
+     "year": "2019",
+     "count": 853
+    },
+    {
+     "year": "2020",
+     "count": 959
+    },
+    {
+     "year": "2021",
+     "count": 879
+    },
+    {
+     "year": "2022",
+     "count": 903
+    },
+    {
+     "year": "2023",
+     "count": 1017
+    },
+    {
+     "year": "2024",
+     "count": 1221
+    },
+    {
+     "year": "2025",
+     "count": 1426
+    },
+    {
+     "year": "2026",
+     "count": 1984
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-310",
+     "name": "Cryptographic Issues",
+     "count": 2056
+    },
+    {
+     "cwe": "CWE-798",
+     "name": "Use of Hard-coded Credentials",
+     "count": 1626
+    },
+    {
+     "cwe": "CWE-295",
+     "name": "Improper Certificate Validation",
+     "count": 1574
+    },
+    {
+     "cwe": "CWE-522",
+     "name": "Insufficiently Protected Credentials",
+     "count": 1185
+    },
+    {
+     "cwe": "CWE-319",
+     "name": "Cleartext Transmission of Sensitive Information",
+     "count": 861
+    },
+    {
+     "cwe": "CWE-312",
+     "name": "Cleartext Storage of Sensitive Information",
+     "count": 756
+    },
+    {
+     "cwe": "CWE-327",
+     "name": "Use of a Broken or Risky Cryptographic Algorithm",
+     "count": 607
+    },
+    {
+     "cwe": "CWE-255",
+     "name": "Credentials Management",
+     "count": 527
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Hard-coded or default credentials / keys",
+     "count": 4587
+    },
+    {
+     "name": "Certificate / TLS validation",
+     "count": 3910
+    },
+    {
+     "name": "Cleartext storage or transmission",
+     "count": 3050
+    },
+    {
+     "name": "Cryptographic issues (generic)",
+     "count": 2111
+    },
+    {
+     "name": "Weak / predictable randomness",
+     "count": 830
+    },
+    {
+     "name": "Nonce / IV / key management",
+     "count": 121
+    }
+   ],
+   "severity": {
+    "CRITICAL": 1952,
+    "HIGH": 4703,
+    "MEDIUM": 7001,
+    "LOW": 924
+   },
+   "high_confidence_pct": 75.2,
+   "examples": [
+    {
+     "id": "CVE-2006-2223",
+     "title": "RIPd in Quagga 0.98 and 0.99 before 20060503 does not properly implement configurations that (1) disable RIPv1 or (2) require plaintext or M...",
+     "cwe": "CWE-20",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2223"
+    },
+    {
+     "id": "CVE-2006-2704",
+     "title": "Secure Elements Class 5 AVR server and client (aka C5 EVM) before 2.8.1 send messages in cleartext, which allows remote attackers to read se...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2704"
+    },
+    {
+     "id": "CVE-2006-2539",
+     "title": "Sybase EAServer 5.0 for HP-UX Itanium, 5.2 for IBM AIX, HP-UX PA-RISC, Linux x86, and Sun Solaris SPARC, and 5.3 for Sun Solaris SPARC does ...",
+     "cwe": "",
+     "severity": "LOW",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2539"
+    },
+    {
+     "id": "CVE-2006-2546",
+     "title": "A recommended admin password reset mechanism for BEA WebLogic Server 8.1, when followed before October 10, 2005, causes the administrator pa...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2546"
+    },
+    {
+     "id": "CVE-2006-2044",
+     "title": "na-img-4.0.34.bin for the IP3 Networks NetAccess NA75 has a default username of admin and a default password of admin.",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2044"
+    },
+    {
+     "id": "CVE-2006-2703",
+     "title": "The RedCarpet command-line client (rug) does not verify SSL certificates from a server, which allows remote attackers to read network traffi...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2703"
+    }
+   ]
+  },
+  {
+   "id": "F9",
+   "name": "Authentication, Authorization and Access Control",
+   "total": 66752,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 63
+    },
+    {
+     "year": "2000",
+     "count": 40
+    },
+    {
+     "year": "2001",
+     "count": 77
+    },
+    {
+     "year": "2002",
+     "count": 126
+    },
+    {
+     "year": "2003",
+     "count": 68
+    },
+    {
+     "year": "2004",
+     "count": 107
+    },
+    {
+     "year": "2005",
+     "count": 185
+    },
+    {
+     "year": "2006",
+     "count": 282
+    },
+    {
+     "year": "2007",
+     "count": 459
+    },
+    {
+     "year": "2008",
+     "count": 842
+    },
+    {
+     "year": "2009",
+     "count": 559
+    },
+    {
+     "year": "2010",
+     "count": 427
+    },
+    {
+     "year": "2011",
+     "count": 465
+    },
+    {
+     "year": "2012",
+     "count": 786
+    },
+    {
+     "year": "2013",
+     "count": 900
+    },
+    {
+     "year": "2014",
+     "count": 1009
+    },
+    {
+     "year": "2015",
+     "count": 1079
+    },
+    {
+     "year": "2016",
+     "count": 1482
+    },
+    {
+     "year": "2017",
+     "count": 1679
+    },
+    {
+     "year": "2018",
+     "count": 1977
+    },
+    {
+     "year": "2019",
+     "count": 2452
+    },
+    {
+     "year": "2020",
+     "count": 3510
+    },
+    {
+     "year": "2021",
+     "count": 3462
+    },
+    {
+     "year": "2022",
+     "count": 4464
+    },
+    {
+     "year": "2023",
+     "count": 5979
+    },
+    {
+     "year": "2024",
+     "count": 7051
+    },
+    {
+     "year": "2025",
+     "count": 9097
+    },
+    {
+     "year": "2026",
+     "count": 18125
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-862",
+     "name": "Missing Authorization",
+     "count": 10451
+    },
+    {
+     "cwe": "CWE-352",
+     "name": "Cross-Site Request Forgery (CSRF)",
+     "count": 9506
+    },
+    {
+     "cwe": "CWE-284",
+     "name": "Improper Access Control",
+     "count": 5343
+    },
+    {
+     "cwe": "CWE-287",
+     "name": "Improper Authentication",
+     "count": 4516
+    },
+    {
+     "cwe": "CWE-264",
+     "name": "Permissions, Privileges, and Access Controls",
+     "count": 3920
+    },
+    {
+     "cwe": "CWE-863",
+     "name": "Incorrect Authorization",
+     "count": 3873
+    },
+    {
+     "cwe": "CWE-269",
+     "name": "Improper Privilege Management",
+     "count": 3414
+    },
+    {
+     "cwe": "CWE-306",
+     "name": "Missing Authentication for Critical Function",
+     "count": 3252
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Missing or incorrect authorization",
+     "count": 22153
+    },
+    {
+     "name": "Permissions and privilege assignment",
+     "count": 12530
+    },
+    {
+     "name": "Missing or improper authentication",
+     "count": 10908
+    },
+    {
+     "name": "Cross-site request forgery (CSRF)",
+     "count": 9603
+    },
+    {
+     "name": "Access control (generic)",
+     "count": 8121
+    },
+    {
+     "name": "Brute force / weak password policy",
+     "count": 1736
+    }
+   ],
+   "severity": {
+    "CRITICAL": 7221,
+    "HIGH": 25925,
+    "MEDIUM": 30422,
+    "LOW": 3111
+   },
+   "high_confidence_pct": 86.8,
+   "examples": [
+    {
+     "id": "CVE-2006-2020",
+     "title": "Asterisk Recording Interface (ARI) in Asterisk@Home before 2.8 stores recordings/includes/main.conf under the web document root with insuffi...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2020"
+    },
+    {
+     "id": "CVE-2006-2409",
+     "title": "Format string vulnerability in the raydium_log function in console.c in Raydium before SVN revision 310 allows local users to execute arbitr...",
+     "cwe": "CWE-134",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2409"
+    },
+    {
+     "id": "CVE-2006-2112",
+     "title": "Fuji Xerox Printing Systems (FXPS) print engine, as used in products including (1) Dell 3000cn through 5110cn and (2) Fuji Xerox DocuPrint f...",
+     "cwe": "CWE-264",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2112"
+    },
+    {
+     "id": "CVE-2006-2224",
+     "title": "RIPd in Quagga 0.98 and 0.99 before 20060503 does not properly enforce RIPv2 authentication requirements, which allows remote attackers to m...",
+     "cwe": "CWE-287",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2224"
+    },
+    {
+     "id": "CVE-2006-2677",
+     "title": "SiteScape Forum 7.2 and possibly earlier stores the avf.rc configuraiton file under the web document root with insufficient access control, ...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2677"
+    },
+    {
+     "id": "CVE-2006-2636",
+     "title": "newsadmin.asp in Katy Whitton NewsCMSLite allows remote attackers to bypass authentication and gain administrative access by setting the log...",
+     "cwe": "CWE-287",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2636"
+    }
+   ]
+  },
+  {
+   "id": "F10",
+   "name": "Information Exposure and Side Channels",
+   "total": 19762,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 34
+    },
+    {
+     "year": "2000",
+     "count": 20
+    },
+    {
+     "year": "2001",
+     "count": 27
+    },
+    {
+     "year": "2002",
+     "count": 83
+    },
+    {
+     "year": "2003",
+     "count": 57
+    },
+    {
+     "year": "2004",
+     "count": 123
+    },
+    {
+     "year": "2005",
+     "count": 208
+    },
+    {
+     "year": "2006",
+     "count": 216
+    },
+    {
+     "year": "2007",
+     "count": 246
+    },
+    {
+     "year": "2008",
+     "count": 268
+    },
+    {
+     "year": "2009",
+     "count": 204
+    },
+    {
+     "year": "2010",
+     "count": 239
+    },
+    {
+     "year": "2011",
+     "count": 401
+    },
+    {
+     "year": "2012",
+     "count": 358
+    },
+    {
+     "year": "2013",
+     "count": 475
+    },
+    {
+     "year": "2014",
+     "count": 592
+    },
+    {
+     "year": "2015",
+     "count": 834
+    },
+    {
+     "year": "2016",
+     "count": 1055
+    },
+    {
+     "year": "2017",
+     "count": 1264
+    },
+    {
+     "year": "2018",
+     "count": 1088
+    },
+    {
+     "year": "2019",
+     "count": 827
+    },
+    {
+     "year": "2020",
+     "count": 998
+    },
+    {
+     "year": "2021",
+     "count": 1117
+    },
+    {
+     "year": "2022",
+     "count": 1117
+    },
+    {
+     "year": "2023",
+     "count": 1348
+    },
+    {
+     "year": "2024",
+     "count": 1615
+    },
+    {
+     "year": "2025",
+     "count": 1777
+    },
+    {
+     "year": "2026",
+     "count": 3171
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-200",
+     "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+     "count": 10995
+    },
+    {
+     "cwe": "CWE-532",
+     "name": "Insertion of Sensitive Information into Log File",
+     "count": 1162
+    },
+    {
+     "cwe": "CWE-203",
+     "name": "Observable Discrepancy",
+     "count": 678
+    },
+    {
+     "cwe": "CWE-209",
+     "name": "Generation of Error Message Containing Sensitive Information",
+     "count": 601
+    },
+    {
+     "cwe": "CWE-201",
+     "name": "Insertion of Sensitive Information Into Sent Data",
+     "count": 457
+    },
+    {
+     "cwe": "CWE-497",
+     "name": "Exposure of Sensitive System Information to an Unauthorized Control Sphere",
+     "count": 429
+    },
+    {
+     "cwe": "CWE-20",
+     "name": "Improper Input Validation",
+     "count": 344
+    },
+    {
+     "cwe": "CWE-264",
+     "name": "Permissions, Privileges, and Access Controls",
+     "count": 266
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Sensitive information exposure",
+     "count": 16668
+    },
+    {
+     "name": "Secrets in logs / errors",
+     "count": 1806
+    },
+    {
+     "name": "Timing and observable discrepancy",
+     "count": 1223
+    },
+    {
+     "name": "Speculative-execution / microarchitectural side channel",
+     "count": 65
+    }
+   ],
+   "severity": {
+    "CRITICAL": 596,
+    "HIGH": 3923,
+    "MEDIUM": 13042,
+    "LOW": 2138
+   },
+   "high_confidence_pct": 79.0,
+   "examples": [
+    {
+     "id": "CVE-2006-2186",
+     "title": "zenphoto 1.0.1 beta and earlier allow remote attackers to obtain sensitive information via a direct request for the (1) /photos/themes/defau...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2186"
+    },
+    {
+     "id": "CVE-2006-2091",
+     "title": "admin.php in Virtual War (VWar) 1.5 and versions before 1.2 allows remote attackers to obtain sensitive information via an invalid vwar_root...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2091"
+    },
+    {
+     "id": "CVE-2006-2471",
+     "title": "Multiple vulnerabilities in BEA WebLogic Server 8.1 through SP4, 7.0 through SP6, and 6.1 through SP7 leak sensitive information to remote a...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2471"
+    },
+    {
+     "id": "CVE-2006-2905",
+     "title": "Partial Links 1.2.2 allows remote attackers to obtain sensitive information via a direct request to (1) page_footer.php and (2) page_header....",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2905"
+    },
+    {
+     "id": "CVE-2006-2540",
+     "title": "Privacy leak in install.php for Diesel PHP Job Site sends sensitive information such as user credentials to an e-mail address controlled by ...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2540"
+    },
+    {
+     "id": "CVE-2006-2356",
+     "title": "NmConsole/utility/RenderMap.asp in Ipswitch WhatsUp Professional 2006 and WhatsUp Professional 2006 Premium allows remote attackers to obtai...",
+     "cwe": "CWE-200",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2356"
+    }
+   ]
+  },
+  {
+   "id": "F11",
+   "name": "Supply Chain, Configuration and Integrity",
+   "total": 8866,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 27
+    },
+    {
+     "year": "2000",
+     "count": 32
+    },
+    {
+     "year": "2001",
+     "count": 20
+    },
+    {
+     "year": "2002",
+     "count": 45
+    },
+    {
+     "year": "2003",
+     "count": 18
+    },
+    {
+     "year": "2004",
+     "count": 16
+    },
+    {
+     "year": "2005",
+     "count": 48
+    },
+    {
+     "year": "2006",
+     "count": 58
+    },
+    {
+     "year": "2007",
+     "count": 48
+    },
+    {
+     "year": "2008",
+     "count": 57
+    },
+    {
+     "year": "2009",
+     "count": 39
+    },
+    {
+     "year": "2010",
+     "count": 191
+    },
+    {
+     "year": "2011",
+     "count": 98
+    },
+    {
+     "year": "2012",
+     "count": 93
+    },
+    {
+     "year": "2013",
+     "count": 77
+    },
+    {
+     "year": "2014",
+     "count": 90
+    },
+    {
+     "year": "2015",
+     "count": 94
+    },
+    {
+     "year": "2016",
+     "count": 153
+    },
+    {
+     "year": "2017",
+     "count": 400
+    },
+    {
+     "year": "2018",
+     "count": 322
+    },
+    {
+     "year": "2019",
+     "count": 436
+    },
+    {
+     "year": "2020",
+     "count": 561
+    },
+    {
+     "year": "2021",
+     "count": 533
+    },
+    {
+     "year": "2022",
+     "count": 641
+    },
+    {
+     "year": "2023",
+     "count": 629
+    },
+    {
+     "year": "2024",
+     "count": 800
+    },
+    {
+     "year": "2025",
+     "count": 986
+    },
+    {
+     "year": "2026",
+     "count": 2354
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-427",
+     "name": "Uncontrolled Search Path Element",
+     "count": 1190
+    },
+    {
+     "cwe": "CWE-347",
+     "name": "Improper Verification of Cryptographic Signature",
+     "count": 845
+    },
+    {
+     "cwe": "CWE-346",
+     "name": "Origin Validation Error",
+     "count": 742
+    },
+    {
+     "cwe": "CWE-345",
+     "name": "Insufficient Verification of Data Authenticity",
+     "count": 714
+    },
+    {
+     "cwe": "CWE-426",
+     "name": "Untrusted Search Path",
+     "count": 641
+    },
+    {
+     "cwe": "CWE-693",
+     "name": "Protection Mechanism Failure",
+     "count": 465
+    },
+    {
+     "cwe": "CWE-428",
+     "name": "Unquoted Search Path or Element",
+     "count": 448
+    },
+    {
+     "cwe": "CWE-1188",
+     "name": "Initialization of a Resource with an Insecure Default",
+     "count": 287
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Missing integrity or authenticity verification",
+     "count": 3489
+    },
+    {
+     "name": "Untrusted search path / library loading",
+     "count": 2761
+    },
+    {
+     "name": "Insecure default / configuration / debug",
+     "count": 1578
+    },
+    {
+     "name": "Untrusted component / dependency / backdoor",
+     "count": 1038
+    }
+   ],
+   "severity": {
+    "CRITICAL": 1005,
+    "HIGH": 4273,
+    "MEDIUM": 3181,
+    "LOW": 390
+   },
+   "high_confidence_pct": 81.0,
+   "examples": [
+    {
+     "id": "CVE-2006-2940",
+     "title": "OpenSSL 0.9.7 before 0.9.7l, 0.9.8 before 0.9.8d, and earlier versions allows attackers to cause a denial of service (CPU consumption) via p...",
+     "cwe": "CWE-399",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2940"
+    },
+    {
+     "id": "CVE-2006-2647",
+     "title": "Untrusted search path vulnerability in update_flash for IBM AIX 5.1, 5.2 and 5.3 allows local users to execute arbitrary commands via unknow...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2647"
+    },
+    {
+     "id": "CVE-2006-2322",
+     "title": "The transparent proxy feature of the Cisco Application Velocity System (AVS) 3110 5.0 and 4.0 and earlier, and 3120 5.0.0 and earlier, has a...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2322"
+    },
+    {
+     "id": "CVE-2006-2505",
+     "title": "Oracle Database Server 10g Release 2 allows local users to execute arbitrary SQL queries via a reference to a malicious package in the TYPE_...",
+     "cwe": "",
+     "severity": "LOW",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2505"
+    },
+    {
+     "id": "CVE-2006-2183",
+     "title": "Untrusted search path vulnerability in Truecrypt 4.1, when running suid root on Linux, allows local users to execute arbitrary commands and ...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2183"
+    },
+    {
+     "id": "CVE-2006-2329",
+     "title": "AngelineCMS 0.6.5 and earlier allow remote attackers to obtain sensitive information via a direct request for (1) adodb-access.inc.php, (2) ...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2329"
+    }
+   ]
+  },
+  {
+   "id": "F12",
+   "name": "Logic, Error Handling and Privilege",
+   "total": 6066,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 12
+    },
+    {
+     "year": "2000",
+     "count": 8
+    },
+    {
+     "year": "2001",
+     "count": 13
+    },
+    {
+     "year": "2002",
+     "count": 17
+    },
+    {
+     "year": "2003",
+     "count": 21
+    },
+    {
+     "year": "2004",
+     "count": 16
+    },
+    {
+     "year": "2005",
+     "count": 32
+    },
+    {
+     "year": "2006",
+     "count": 49
+    },
+    {
+     "year": "2007",
+     "count": 68
+    },
+    {
+     "year": "2008",
+     "count": 123
+    },
+    {
+     "year": "2009",
+     "count": 74
+    },
+    {
+     "year": "2010",
+     "count": 70
+    },
+    {
+     "year": "2011",
+     "count": 119
+    },
+    {
+     "year": "2012",
+     "count": 103
+    },
+    {
+     "year": "2013",
+     "count": 122
+    },
+    {
+     "year": "2014",
+     "count": 116
+    },
+    {
+     "year": "2015",
+     "count": 144
+    },
+    {
+     "year": "2016",
+     "count": 202
+    },
+    {
+     "year": "2017",
+     "count": 367
+    },
+    {
+     "year": "2018",
+     "count": 420
+    },
+    {
+     "year": "2019",
+     "count": 276
+    },
+    {
+     "year": "2020",
+     "count": 270
+    },
+    {
+     "year": "2021",
+     "count": 343
+    },
+    {
+     "year": "2022",
+     "count": 367
+    },
+    {
+     "year": "2023",
+     "count": 438
+    },
+    {
+     "year": "2024",
+     "count": 561
+    },
+    {
+     "year": "2025",
+     "count": 503
+    },
+    {
+     "year": "2026",
+     "count": 1212
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-20",
+     "name": "Improper Input Validation",
+     "count": 2739
+    },
+    {
+     "cwe": "CWE-755",
+     "name": "Improper Handling of Exceptional Conditions",
+     "count": 460
+    },
+    {
+     "cwe": "CWE-250",
+     "name": "Execution with Unnecessary Privileges",
+     "count": 350
+    },
+    {
+     "cwe": "CWE-248",
+     "name": "Uncaught Exception",
+     "count": 328
+    },
+    {
+     "cwe": "CWE-754",
+     "name": "Improper Check for Unusual or Exceptional Conditions",
+     "count": 313
+    },
+    {
+     "cwe": "CWE-252",
+     "name": "Unchecked Return Value",
+     "count": 169
+    },
+    {
+     "cwe": "CWE-670",
+     "name": "Always-Incorrect Control Flow Implementation",
+     "count": 147
+    },
+    {
+     "cwe": "CWE-807",
+     "name": "Reliance on Untrusted Inputs in a Security Decision",
+     "count": 100
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Incorrect control flow or logic",
+     "count": 3816
+    },
+    {
+     "name": "Unchecked or mishandled error / exception",
+     "count": 1575
+    },
+    {
+     "name": "OS privilege mismanagement",
+     "count": 675
+    }
+   ],
+   "severity": {
+    "CRITICAL": 552,
+    "HIGH": 2510,
+    "MEDIUM": 2626,
+    "LOW": 367
+   },
+   "high_confidence_pct": 83.4,
+   "examples": [
+    {
+     "id": "CVE-2006-2607",
+     "title": "do_command.c in Vixie cron (vixie-cron) 4.1 does not check the return code of a setuid call, which might allow local users to gain root priv...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2607"
+    },
+    {
+     "id": "CVE-2006-2230",
+     "title": "Multiple format string vulnerabilities in xiTK (xitk/main.c) in xine 0.99.4 might allow attackers to cause a denial of service via format st...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2230"
+    },
+    {
+     "id": "CVE-2006-2782",
+     "title": "Firefox 1.5.0.2 does not fix all test cases associated with CVE-2006-1729, which allows remote attackers to read arbitrary files by insertin...",
+     "cwe": "CWE-20",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2782"
+    },
+    {
+     "id": "CVE-2006-2916",
+     "title": "artswrapper in aRts, when running setuid root on Linux 2.6.0 or later versions, does not check the return value of the setuid function call,...",
+     "cwe": "CWE-273",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2916"
+    },
+    {
+     "id": "CVE-2006-2194",
+     "title": "The winbind plugin in pppd for ppp 2.4.4 and earlier does not check the return code from the setuid function call, which might allow local u...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2194"
+    },
+    {
+     "id": "CVE-2006-2894",
+     "title": "Mozilla Firefox 1.5.0.4, 2.0.x before 2.0.0.8, Mozilla Suite 1.7.13, Mozilla SeaMonkey 1.0.2 and other versions before 1.1.5, and Netscape 8...",
+     "cwe": "CWE-20",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2894"
+    }
+   ]
+  },
+  {
+   "id": "F13",
+   "name": "Hardware, Firmware and Platform Design",
+   "total": 624,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 0
+    },
+    {
+     "year": "2000",
+     "count": 0
+    },
+    {
+     "year": "2001",
+     "count": 1
+    },
+    {
+     "year": "2002",
+     "count": 0
+    },
+    {
+     "year": "2003",
+     "count": 0
+    },
+    {
+     "year": "2004",
+     "count": 0
+    },
+    {
+     "year": "2005",
+     "count": 1
+    },
+    {
+     "year": "2006",
+     "count": 2
+    },
+    {
+     "year": "2007",
+     "count": 1
+    },
+    {
+     "year": "2008",
+     "count": 0
+    },
+    {
+     "year": "2009",
+     "count": 2
+    },
+    {
+     "year": "2010",
+     "count": 1
+    },
+    {
+     "year": "2011",
+     "count": 1
+    },
+    {
+     "year": "2012",
+     "count": 0
+    },
+    {
+     "year": "2013",
+     "count": 5
+    },
+    {
+     "year": "2014",
+     "count": 5
+    },
+    {
+     "year": "2015",
+     "count": 7
+    },
+    {
+     "year": "2016",
+     "count": 22
+    },
+    {
+     "year": "2017",
+     "count": 9
+    },
+    {
+     "year": "2018",
+     "count": 11
+    },
+    {
+     "year": "2019",
+     "count": 17
+    },
+    {
+     "year": "2020",
+     "count": 12
+    },
+    {
+     "year": "2021",
+     "count": 25
+    },
+    {
+     "year": "2022",
+     "count": 92
+    },
+    {
+     "year": "2023",
+     "count": 69
+    },
+    {
+     "year": "2024",
+     "count": 106
+    },
+    {
+     "year": "2025",
+     "count": 135
+    },
+    {
+     "year": "2026",
+     "count": 100
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-20",
+     "name": "Improper Input Validation",
+     "count": 38
+    },
+    {
+     "cwe": "CWE-119",
+     "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+     "count": 33
+    },
+    {
+     "cwe": "CWE-1191",
+     "name": "On-Chip Debug and Test Interface With Improper Access Control",
+     "count": 27
+    },
+    {
+     "cwe": "CWE-1295",
+     "name": "Debug Messages Revealing Unnecessary Information",
+     "count": 22
+    },
+    {
+     "cwe": "CWE-1260",
+     "name": "Improper Handling of Overlap Between Protected Memory Ranges",
+     "count": 18
+    },
+    {
+     "cwe": "CWE-1259",
+     "name": "Improper Restriction of Security Token Assignment",
+     "count": 17
+    },
+    {
+     "cwe": "CWE-1258",
+     "name": "Exposure of Sensitive System Information Due to Uncleared Debug Information",
+     "count": 16
+    },
+    {
+     "cwe": "CWE-1263",
+     "name": "Improper Physical Access Control",
+     "count": 14
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "Hardware / firmware design weakness",
+     "count": 624
+    }
+   ],
+   "severity": {
+    "CRITICAL": 34,
+    "HIGH": 224,
+    "MEDIUM": 283,
+    "LOW": 44
+   },
+   "high_confidence_pct": 51.8,
+   "examples": [
+    {
+     "id": "CVE-2006-6730",
+     "title": "OpenBSD and NetBSD permit usermode code to kill the display server and write to the X.Org /dev/xf86 device, which allows local users with ro...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-6730"
+    },
+    {
+     "id": "CVE-2006-0751",
+     "title": "Multiple unspecified vulnerabilities in the (1) Filesystem in USErspace (FUSE) client and (2) NOOFS daemon in in Network Object Oriented Fil...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-0751"
+    },
+    {
+     "id": "CVE-2015-8325",
+     "title": "The do_setup_env function in session.c in sshd in OpenSSH through 7.2p2, when the UseLogin feature is enabled and PAM is configured to read ...",
+     "cwe": "CWE-1262",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-8325"
+    },
+    {
+     "id": "CVE-2015-1339",
+     "title": "Memory leak in the cuse_channel_release function in fs/fuse/cuse.c in the Linux kernel before 4.4 allows local users to cause a denial of se...",
+     "cwe": "CWE-399",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-1339"
+    },
+    {
+     "id": "CVE-2015-6639",
+     "title": "The Widevine QSEE TrustZone application in Android 5.x before 5.1.1 LMY49F and 6.0 before 2016-01-01 allows attackers to gain privileges via...",
+     "cwe": "CWE-264",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-6639"
+    },
+    {
+     "id": "CVE-2015-6647",
+     "title": "The Widevine QSEE TrustZone application in Android 5.x before 5.1.1 LMY49F and 6.0 before 2016-01-01 allows attackers to gain privileges via...",
+     "cwe": "CWE-264",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-6647"
+    }
+   ]
+  },
+  {
+   "id": "F14",
+   "name": "User Interface and Deception",
+   "total": 1269,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 0
+    },
+    {
+     "year": "2000",
+     "count": 0
+    },
+    {
+     "year": "2001",
+     "count": 1
+    },
+    {
+     "year": "2002",
+     "count": 0
+    },
+    {
+     "year": "2003",
+     "count": 0
+    },
+    {
+     "year": "2004",
+     "count": 13
+    },
+    {
+     "year": "2005",
+     "count": 13
+    },
+    {
+     "year": "2006",
+     "count": 9
+    },
+    {
+     "year": "2007",
+     "count": 18
+    },
+    {
+     "year": "2008",
+     "count": 9
+    },
+    {
+     "year": "2009",
+     "count": 13
+    },
+    {
+     "year": "2010",
+     "count": 4
+    },
+    {
+     "year": "2011",
+     "count": 7
+    },
+    {
+     "year": "2012",
+     "count": 13
+    },
+    {
+     "year": "2013",
+     "count": 29
+    },
+    {
+     "year": "2014",
+     "count": 19
+    },
+    {
+     "year": "2015",
+     "count": 21
+    },
+    {
+     "year": "2016",
+     "count": 28
+    },
+    {
+     "year": "2017",
+     "count": 36
+    },
+    {
+     "year": "2018",
+     "count": 39
+    },
+    {
+     "year": "2019",
+     "count": 61
+    },
+    {
+     "year": "2020",
+     "count": 65
+    },
+    {
+     "year": "2021",
+     "count": 99
+    },
+    {
+     "year": "2022",
+     "count": 85
+    },
+    {
+     "year": "2023",
+     "count": 52
+    },
+    {
+     "year": "2024",
+     "count": 109
+    },
+    {
+     "year": "2025",
+     "count": 155
+    },
+    {
+     "year": "2026",
+     "count": 371
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-451",
+     "name": "User Interface (UI) Misrepresentation of Critical Information",
+     "count": 415
+    },
+    {
+     "cwe": "CWE-1021",
+     "name": "Improper Restriction of Rendered UI Layers or Frames",
+     "count": 401
+    },
+    {
+     "cwe": "CWE-20",
+     "name": "Improper Input Validation",
+     "count": 142
+    },
+    {
+     "cwe": "CWE-356",
+     "name": "Product UI does not Warn User of Unsafe Actions",
+     "count": 32
+    },
+    {
+     "cwe": "CWE-357",
+     "name": "Insufficient UI Warning of Dangerous Operations",
+     "count": 19
+    },
+    {
+     "cwe": "CWE-254",
+     "name": "",
+     "count": 15
+    },
+    {
+     "cwe": "CWE-1022",
+     "name": "Use of Web Link to Untrusted Target with window.opener Access",
+     "count": 14
+    },
+    {
+     "cwe": "CWE-449",
+     "name": "The UI Performs the Wrong Action",
+     "count": 14
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "UI misrepresentation / spoofing",
+     "count": 746
+    },
+    {
+     "name": "Clickjacking / UI redress",
+     "count": 523
+    }
+   ],
+   "severity": {
+    "CRITICAL": 14,
+    "HIGH": 186,
+    "MEDIUM": 989,
+    "LOW": 80
+   },
+   "high_confidence_pct": 71.0,
+   "examples": [
+    {
+     "id": "CVE-2006-2920",
+     "title": "Sylpheed-Claws before 2.2.2 and Sylpheed before 2.2.6 allow remote attackers to bypass the URI check functionality and makes it easier to co...",
+     "cwe": "CWE-20",
+     "severity": "LOW",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2920"
+    },
+    {
+     "id": "CVE-2006-1650",
+     "title": "Firefox 1.5.0.1 allows remote attackers to spoof the address bar and possibly conduct phishing attacks by re-opening the window to a malicio...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-1650"
+    },
+    {
+     "id": "CVE-2006-1192",
+     "title": "Microsoft Internet Explorer 5.01 through 6 allows remote attackers to conduct phishing attacks by spoofing the address bar and other parts o...",
+     "cwe": "CWE-20",
+     "severity": "LOW",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-1192"
+    },
+    {
+     "id": "CVE-2006-1626",
+     "title": "Internet Explorer 6 for Windows XP SP2 and earlier allows remote attackers to spoof the address bar and possibly conduct phishing attacks by...",
+     "cwe": "CWE-20",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-1626"
+    },
+    {
+     "id": "CVE-2006-6971",
+     "title": "Mozilla Firefox 2.0, possibly only when running on Windows, allows remote attackers to bypass the Phishing Protection mechanism by represent...",
+     "cwe": "CWE-20",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-6971"
+    },
+    {
+     "id": "CVE-2006-5544",
+     "title": "Visual truncation vulnerability in Microsoft Internet Explorer 7 allows remote attackers to spoof the address bar and possibly conduct phish...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-5544"
+    }
+   ]
+  },
+  {
+   "id": "U0",
+   "name": "Unclassified",
+   "total": 21769,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 703
+    },
+    {
+     "year": "2000",
+     "count": 516
+    },
+    {
+     "year": "2001",
+     "count": 500
+    },
+    {
+     "year": "2002",
+     "count": 596
+    },
+    {
+     "year": "2003",
+     "count": 308
+    },
+    {
+     "year": "2004",
+     "count": 534
+    },
+    {
+     "year": "2005",
+     "count": 877
+    },
+    {
+     "year": "2006",
+     "count": 885
+    },
+    {
+     "year": "2007",
+     "count": 698
+    },
+    {
+     "year": "2008",
+     "count": 328
+    },
+    {
+     "year": "2009",
+     "count": 296
+    },
+    {
+     "year": "2010",
+     "count": 483
+    },
+    {
+     "year": "2011",
+     "count": 390
+    },
+    {
+     "year": "2012",
+     "count": 586
+    },
+    {
+     "year": "2013",
+     "count": 674
+    },
+    {
+     "year": "2014",
+     "count": 547
+    },
+    {
+     "year": "2015",
+     "count": 641
+    },
+    {
+     "year": "2016",
+     "count": 762
+    },
+    {
+     "year": "2017",
+     "count": 880
+    },
+    {
+     "year": "2018",
+     "count": 887
+    },
+    {
+     "year": "2019",
+     "count": 1066
+    },
+    {
+     "year": "2020",
+     "count": 1263
+    },
+    {
+     "year": "2021",
+     "count": 1253
+    },
+    {
+     "year": "2022",
+     "count": 1042
+    },
+    {
+     "year": "2023",
+     "count": 918
+    },
+    {
+     "year": "2024",
+     "count": 837
+    },
+    {
+     "year": "2025",
+     "count": 632
+    },
+    {
+     "year": "2026",
+     "count": 2667
+    }
+   ],
+   "top_cwes": [
+    {
+     "cwe": "CWE-254",
+     "name": "",
+     "count": 210
+    },
+    {
+     "cwe": "CWE-610",
+     "name": "Externally Controlled Reference to a Resource in Another Sphere",
+     "count": 61
+    },
+    {
+     "cwe": "CWE-669",
+     "name": "Incorrect Resource Transfer Between Spheres",
+     "count": 58
+    },
+    {
+     "cwe": "CWE-19",
+     "name": "Data Processing Errors",
+     "count": 50
+    },
+    {
+     "cwe": "CWE-17",
+     "name": "",
+     "count": 43
+    },
+    {
+     "cwe": "CWE-664",
+     "name": "Improper Control of a Resource Through its Lifetime",
+     "count": 23
+    },
+    {
+     "cwe": "CWE-440",
+     "name": "Expected Behavior Violation",
+     "count": 15
+    },
+    {
+     "cwe": "CWE-471",
+     "name": "Modification of Assumed-Immutable Data (MAID)",
+     "count": 13
+    }
+   ],
+   "top_subcategories": [
+    {
+     "name": "No CWE and no recognisable weakness wording",
+     "count": 21769
+    }
+   ],
+   "severity": {
+    "CRITICAL": 1056,
+    "HIGH": 8255,
+    "MEDIUM": 9739,
+    "LOW": 1565
+   },
+   "high_confidence_pct": null,
+   "examples": [
+    {
+     "id": "CVE-2006-2357",
+     "title": "Ipswitch WhatsUp Professional 2006 and WhatsUp Professional 2006 Premium allows remote attackers to obtain source code for scripts via a tra...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2357"
+    },
+    {
+     "id": "CVE-2006-2679",
+     "title": "Unspecified vulnerability in the VPN Client for Windows Graphical User Interface (GUI) (aka the VPN client dialer) in Cisco VPN Client for W...",
+     "cwe": "",
+     "severity": "HIGH",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2679"
+    },
+    {
+     "id": "CVE-2006-2631",
+     "title": "phpFoX allows remote authenticated users to modify arbitrary accounts via a modified NATIO cookie value, possibly the phpfox_user parameter.",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2631"
+    },
+    {
+     "id": "CVE-2006-2247",
+     "title": "WebCalendar 1.0.1 to 1.0.3 generates different error messages depending on whether or not a username is valid, which allows remote attackers...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2247"
+    },
+    {
+     "id": "CVE-2006-2354",
+     "title": "NmConsole/Login.asp in Ipswitch WhatsUp Professional 2006 and Ipswitch WhatsUp Professional 2006 Premium generates different error messages ...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2354"
+    },
+    {
+     "id": "CVE-2006-2437",
+     "title": "The viewfile servlet in the documentation package (resin-doc) for Caucho Resin 3.0.17 and 3.0.18 allows remote attackers to obtain the sourc...",
+     "cwe": "",
+     "severity": "MEDIUM",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2437"
+    }
+   ]
+  },
+  {
+   "id": "R0",
+   "name": "Rejected or Withdrawn",
+   "total": 18629,
+   "by_year": [
+    {
+     "year": "1999",
+     "count": 39
+    },
+    {
+     "year": "2000",
+     "count": 7
+    },
+    {
+     "year": "2001",
+     "count": 19
+    },
+    {
+     "year": "2002",
+     "count": 36
+    },
+    {
+     "year": "2003",
+     "count": 51
+    },
+    {
+     "year": "2004",
+     "count": 63
+    },
+    {
+     "year": "2005",
+     "count": 143
+    },
+    {
+     "year": "2006",
+     "count": 150
+    },
+    {
+     "year": "2007",
+     "count": 122
+    },
+    {
+     "year": "2008",
+     "count": 174
+    },
+    {
+     "year": "2009",
+     "count": 133
+    },
+    {
+     "year": "2010",
+     "count": 175
+    },
+    {
+     "year": "2011",
+     "count": 253
+    },
+    {
+     "year": "2012",
+     "count": 451
+    },
+    {
+     "year": "2013",
+     "count": 610
+    },
+    {
+     "year": "2014",
+     "count": 575
+    },
+    {
+     "year": "2015",
+     "count": 668
+    },
+    {
+     "year": "2016",
+     "count": 1280
+    },
+    {
+     "year": "2017",
+     "count": 2344
+    },
+    {
+     "year": "2018",
+     "count": 1629
+    },
+    {
+     "year": "2019",
+     "count": 1527
+    },
+    {
+     "year": "2020",
+     "count": 1683
+    },
+    {
+     "year": "2021",
+     "count": 868
+    },
+    {
+     "year": "2022",
+     "count": 1108
+    },
+    {
+     "year": "2023",
+     "count": 805
+    },
+    {
+     "year": "2024",
+     "count": 866
+    },
+    {
+     "year": "2025",
+     "count": 1789
+    },
+    {
+     "year": "2026",
+     "count": 1061
+    }
+   ],
+   "top_cwes": [],
+   "top_subcategories": [
+    {
+     "name": "Rejected or withdrawn",
+     "count": 18629
+    }
+   ],
+   "severity": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+   },
+   "high_confidence_pct": null,
+   "examples": [
+    {
+     "id": "CVE-2006-2938",
+     "title": "DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: CVE-2006-2937. Reason: This candidate was withdrawn by its CNA. it was incorrectly used to ide...",
+     "cwe": "",
+     "severity": null,
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2938"
+    },
+    {
+     "id": "CVE-2006-2125",
+     "title": "DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: CVE-2005-3779. Reason: This candidate is a duplicate of CVE-2005-3779. Notes: All CVE users sh...",
+     "cwe": "",
+     "severity": null,
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2125"
+    },
+    {
+     "id": "CVE-2006-2599",
+     "title": "DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: CVE-2006-2587. Reason: This candidate is a duplicate of CVE-2006-2587. Notes: All CVE users sh...",
+     "cwe": "",
+     "severity": null,
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2599"
+    },
+    {
+     "id": "CVE-2006-2601",
+     "title": "DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: CVE-2006-2589. Reason: This candidate is a duplicate of CVE-2006-2589. Notes: All CVE users sh...",
+     "cwe": "",
+     "severity": null,
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2601"
+    },
+    {
+     "id": "CVE-2006-2602",
+     "title": "DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: CVE-2006-2590. Reason: This candidate is a duplicate of CVE-2006-2590. Notes: All CVE users sh...",
+     "cwe": "",
+     "severity": null,
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2602"
+    },
+    {
+     "id": "CVE-2006-2381",
+     "title": "DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: none. Reason: The CNA or individual who requested this candidate did not associate it with any...",
+     "cwe": "",
+     "severity": null,
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2381"
+    }
+   ]
+  }
+ ],
+ "timeline_total": [
+  {
+   "year": "1999",
+   "count": 1579
+  },
+  {
+   "year": "2000",
+   "count": 1243
+  },
+  {
+   "year": "2001",
+   "count": 1556
+  },
+  {
+   "year": "2002",
+   "count": 2393
+  },
+  {
+   "year": "2003",
+   "count": 1555
+  },
+  {
+   "year": "2004",
+   "count": 2707
+  },
+  {
+   "year": "2005",
+   "count": 4770
+  },
+  {
+   "year": "2006",
+   "count": 7145
+  },
+  {
+   "year": "2007",
+   "count": 6580
+  },
+  {
+   "year": "2008",
+   "count": 7179
+  },
+  {
+   "year": "2009",
+   "count": 5054
+  },
+  {
+   "year": "2010",
+   "count": 5249
+  },
+  {
+   "year": "2011",
+   "count": 4899
+  },
+  {
+   "year": "2012",
+   "count": 5943
+  },
+  {
+   "year": "2013",
+   "count": 6832
+  },
+  {
+   "year": "2014",
+   "count": 9007
+  },
+  {
+   "year": "2015",
+   "count": 8784
+  },
+  {
+   "year": "2016",
+   "count": 10656
+  },
+  {
+   "year": "2017",
+   "count": 17109
+  },
+  {
+   "year": "2018",
+   "count": 17817
+  },
+  {
+   "year": "2019",
+   "count": 17625
+  },
+  {
+   "year": "2020",
+   "count": 21085
+  },
+  {
+   "year": "2021",
+   "count": 23476
+  },
+  {
+   "year": "2022",
+   "count": 27557
+  },
+  {
+   "year": "2023",
+   "count": 31472
+  },
+  {
+   "year": "2024",
+   "count": 39355
+  },
+  {
+   "year": "2025",
+   "count": 45412
+  },
+  {
+   "year": "2026",
+   "count": 78824
+  }
+ ],
+ "severity_totals": {
+  "CRITICAL": 38244,
+  "HIGH": 154821,
+  "MEDIUM": 176584,
+  "LOW": 20498
+ },
+ "top_vendors": [
+  {
+   "name": "Linux",
+   "count": 17978
+  },
+  {
+   "name": "Microsoft",
+   "count": 12207
+  },
+  {
+   "name": "Oracle Corporation",
+   "count": 8869
+  },
+  {
+   "name": "Google",
+   "count": 7403
+  },
+  {
+   "name": "IBM",
+   "count": 5908
+  },
+  {
+   "name": "Unknown",
+   "count": 5896
+  },
+  {
+   "name": "Adobe",
+   "count": 5094
+  },
+  {
+   "name": "Apple",
+   "count": 4299
+  },
+  {
+   "name": "Cisco",
+   "count": 3435
+  },
+  {
+   "name": "Qualcomm, Inc.",
+   "count": 2991
+  },
+  {
+   "name": "Apache Software Foundation",
+   "count": 2749
+  },
+  {
+   "name": "Mozilla",
+   "count": 2273
+  }
+ ],
+ "top_products": [
+  {
+   "name": "Linux",
+   "count": 17848
+  },
+  {
+   "name": "Chrome",
+   "count": 5779
+  },
+  {
+   "name": "Android",
+   "count": 5002
+  },
+  {
+   "name": "Windows 10 Version 1607",
+   "count": 2066
+  },
+  {
+   "name": "macOS",
+   "count": 1840
+  },
+  {
+   "name": "Windows 10 Version 1809",
+   "count": 1814
+  },
+  {
+   "name": "Firefox",
+   "count": 1688
+  },
+  {
+   "name": "iOS and iPadOS",
+   "count": 1403
+  },
+  {
+   "name": "GitLab",
+   "count": 1118
+  },
+  {
+   "name": "MySQL Server",
+   "count": 1114
+  },
+  {
+   "name": "HarmonyOS",
+   "count": 1061
+  },
+  {
+   "name": "Snapdragon",
+   "count": 997
+  }
+ ],
+ "top_assigners": [
+  {
+   "name": "mitre",
+   "count": 117039
+  },
+  {
+   "name": "GitHub_M",
+   "count": 22153
+  },
+  {
+   "name": "Patchstack",
+   "count": 18978
+  },
+  {
+   "name": "Linux",
+   "count": 18257
+  },
+  {
+   "name": "VulDB",
+   "count": 17630
+  },
+  {
+   "name": "microsoft",
+   "count": 16865
+  },
+  {
+   "name": "redhat",
+   "count": 13210
+  },
+  {
+   "name": "oracle",
+   "count": 12520
+  },
+  {
+   "name": "Wordfence",
+   "count": 12037
+  },
+  {
+   "name": "VulnCheck",
+   "count": 10758
+  }
+ ]
+}

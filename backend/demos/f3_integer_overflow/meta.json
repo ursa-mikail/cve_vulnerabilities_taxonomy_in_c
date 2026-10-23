@@ -1,0 +1,16 @@
+{
+  "family": "F3",
+  "family_name": "Integer and Numeric Errors",
+  "subcategory": "Integer overflow feeding an allocation size",
+  "cwe": "CWE-190",
+  "title": "Integer overflow leading to a heap overflow",
+  "root_cause": "count * sizeof(item) is computed in 32-bit arithmetic. When the true product exceeds 2^32, it silently wraps to a small number, so malloc() allocates far less memory than the code then writes into.",
+  "defenses": [
+    "Do size arithmetic in size_t (or wider), not a narrower integer type.",
+    "Check for overflow before allocating, e.g. with __builtin_mul_overflow or calloc(n, size).",
+    "Treat any size or count that comes from outside the program as hostile until range-checked.",
+    "Build with -fsanitize=undefined,integer in testing to catch wraparounds."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

@@ -1,0 +1,16 @@
+{
+  "family": "F1",
+  "family_name": "Spatial Memory Safety",
+  "subcategory": "Stack-based buffer overflow",
+  "cwe": "CWE-121",
+  "title": "Stack buffer overflow via strcpy",
+  "root_cause": "strcpy() has no idea how big the destination buffer is, so it writes every byte of the source string even when that runs past the end of the stack buffer.",
+  "defenses": [
+    "Never use strcpy, strcat, sprintf, or gets.",
+    "Use snprintf with the destination's real size and check the return value.",
+    "Compile with -fstack-protector-strong and -D_FORTIFY_SOURCE=2 in production.",
+    "Run AddressSanitizer in testing and fuzz any function that copies external input."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

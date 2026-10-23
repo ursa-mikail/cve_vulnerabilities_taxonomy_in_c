@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# ./logs -> follow live logs from both containers (Ctrl+C to exit).
+cd "$(dirname "$0")" || exit 1
+docker compose logs -f

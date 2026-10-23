@@ -1,0 +1,16 @@
+{
+  "family": "F2",
+  "family_name": "Temporal Memory Safety",
+  "subcategory": "Use after free",
+  "cwe": "CWE-416",
+  "title": "Use-after-free on a session token",
+  "root_cause": "free() releases the memory back to the allocator, but the pointer still points at it. Reading or writing through that pointer afterward touches memory the program no longer owns.",
+  "defenses": [
+    "Set pointers to NULL immediately after free() and never dereference them again.",
+    "Document and enforce a single clear owner for every heap allocation.",
+    "Run AddressSanitizer or Valgrind in testing -- both catch use-after-free directly.",
+    "Prefer a hardened allocator in production (e.g. scudo) that mitigates UAF exploitation."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

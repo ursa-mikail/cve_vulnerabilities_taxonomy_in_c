@@ -1,0 +1,16 @@
+{
+  "family": "F12",
+  "family_name": "Logic, Error Handling and Privilege",
+  "subcategory": "Always-incorrect control flow",
+  "cwe": "CWE-670",
+  "title": "The \"goto fail\" bug: a duplicated line skips verification",
+  "root_cause": "A duplicated, unconditional 'goto fail;' runs right after the params check, before the signature check ever executes. Because err still holds 0 (success) from the previous check, verify() reports success without ever having checked the signature.",
+  "defenses": [
+    "Default to failure: start err at a failure value and only set it to success after every check passes.",
+    "Always use braces on every if, even single-line bodies -- this bug is far more visible with braces.",
+    "Build with -Wmisleading-indentation and run a formatter in CI to catch structurally odd blocks.",
+    "Write unit tests for the negative paths specifically: a bad signature must make verification fail, every time."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

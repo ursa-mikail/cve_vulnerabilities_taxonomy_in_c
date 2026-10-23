@@ -1,0 +1,20 @@
+{
+  "family": "F6",
+  "family_name": "Concurrency and Timing",
+  "subcategory": "Data race on shared state",
+  "cwe": "CWE-362",
+  "title": "Lost updates from an unsynchronized counter",
+  "root_cause": "balance += 1 is really three steps: read, add one, write back. When 8 threads do this concurrently with no lock, two threads can read the same value and both write back the same result, silently losing one increment.",
+  "defenses": [
+    "Protect shared mutable state with a mutex, or use atomics for simple counters.",
+    "Prefer immutable data and message-passing between threads where possible.",
+    "Run ThreadSanitizer (-fsanitize=thread) in testing -- it reports the exact racing accesses.",
+    "Document and review the locking order for every piece of shared state to avoid deadlock too."
+  ],
+  "sanitize": "address,undefined",
+  "sanitize_vulnerable": "thread",
+  "extra_cflags": [
+    "-pthread"
+  ],
+  "timeout_s": 8
+}

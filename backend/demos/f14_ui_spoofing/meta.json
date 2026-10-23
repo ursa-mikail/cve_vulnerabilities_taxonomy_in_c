@@ -1,0 +1,17 @@
+{
+  "family": "F14",
+  "family_name": "User Interface and Deception",
+  "subcategory": "UI misrepresentation / spoofing",
+  "cwe": "CWE-451",
+  "title": "Forged status line via newline injection in displayed text",
+  "root_cause": "Attacker-controlled text is rendered inside a trusted interface with no escaping, so the attacker can shape what the user believes the program said. The code ran correctly; the user was deceived. The same idea underlies clickjacking, spoofed dialogs, and terminal escape-sequence injection.",
+  "defenses": [
+    "Escape or strip control characters (newlines, ESC sequences, bidi overrides) before showing untrusted text.",
+    "Show security-relevant status (verified / unverified) from the real check, in a visually separate, unforgeable area.",
+    "Quote or visually frame untrusted values so they cannot read as part of the interface itself.",
+    "Default to the unsafe-looking state: when verification is absent or fails, say so prominently.",
+    "For web UIs, use frame-ancestors / X-Frame-Options and confirm dangerous actions out-of-band."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

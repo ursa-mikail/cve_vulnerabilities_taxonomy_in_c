@@ -1,0 +1,17 @@
+{
+  "family": "F13",
+  "family_name": "Hardware, Firmware and Platform Design",
+  "subcategory": "Hardware / firmware design weakness",
+  "cwe": "CWE-1191",
+  "title": "Debug port left enabled on a production device",
+  "root_cause": "The flaw is in the design, not in a line of code: a privileged debug/test path was never disabled for shipped units and does not check who is asking or what lifecycle state the device is in. Anyone with physical (or sometimes network) access to the interface can read secrets and take control. Software patches often cannot fix it once the hardware has shipped.",
+  "defenses": [
+    "Tie debug and test access to a one-way lifecycle state (fuses / OTP) and close it permanently before shipping.",
+    "Require authenticated, per-device unlock (challenge-response) even for development access.",
+    "Keep secrets in a hardware security module or secure element that never exposes them over debug.",
+    "Threat-model physical access during design review and test production units with a probe before release.",
+    "Ship signed, updatable firmware so a design flaw has at least a remediation path."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5
+}

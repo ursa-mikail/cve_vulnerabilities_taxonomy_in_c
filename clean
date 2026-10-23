@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# ./clean -> stop the lab and remove its containers, volumes and images.
+cd "$(dirname "$0")" || exit 1
+docker compose down -v --rmi local --remove-orphans && printf '\nAll clean. Run ./up to rebuild from scratch.\n\n'
