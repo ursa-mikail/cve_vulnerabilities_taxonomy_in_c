@@ -5,6 +5,8 @@ taxonomy tree, open any demo, and run the **vulnerable** and **fixed** versions 
 side by side — each one compiled and executed live, in a sandboxed container, with
 AddressSanitizer / UndefinedBehaviorSanitizer / ThreadSanitizer catching the bug as it happens.
 
+![main](main.png)
+
 ## Quick start
 
 Requires Docker and Docker Compose (the `docker compose` plugin, not the old `docker-compose`
