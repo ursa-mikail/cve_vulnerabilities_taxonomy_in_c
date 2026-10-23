@@ -1,4 +1,4 @@
-# C Vulnerability Taxonomy Lab
+# CVE Vulnerability Taxonomy
 
 An interactive, self-contained lab for the 14-family C vulnerability taxonomy. Browse the
 taxonomy tree, open any demo, and run the **vulnerable** and **fixed** versions of real C code
