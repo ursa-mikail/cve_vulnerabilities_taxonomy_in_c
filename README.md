@@ -43,12 +43,16 @@ dataset and shipped with the image — the dashboard needs no internet access at
 
 - **Every CVE record in the dataset appears exactly once** (412,863 rows, no duplicates, no empty descriptions).
 - Each CVE is mapped to one family by its CWE (NVD/CNA) where available, otherwise by description keywords.
-- **21,769 (5.3%) are `U0` Unclassified**: the public record does not say what kind of weakness it is
-  (mostly vendor advisories such as Oracle quarterly patches). They are kept and counted, never dropped.
+- **19,693 (4.8%) are `U0` Unclassified**: the public record does not say what kind of weakness it is.
+  About 7,600 are vendor advisories (mostly Oracle patch bulletins) whose text names no weakness at all,
+  so they cannot honestly be classified. The rest are too vague for the classifier to be confident; the CSV
+  gives a `best_guess_family` for those, kept out of the counts. Nothing is dropped.
 - **18,629 are `R0` Rejected/Withdrawn** CVE IDs.
 - Check the `mapping_confidence` column (`high` / `medium` / `low`) before relying on a single row:
   keyword-based and heuristic rows are `low`. 1,612 Linux kernel CVEs were recovered from the commit
-  title in the description with simple keyword rules; those are marked `low` and are estimates.
+  title with keyword rules, and 2,076 more by a text classifier trained on CVEs that do have a CWE
+  (about 88% accurate on a held-out test of CVEs with clear descriptions, lower on vague ones). All of these
+  are marked `low` and are estimates.
 - The dataset is a snapshot: CVEs published after it was built are not included.
 
 ## How to navigate (you will never be lost)
