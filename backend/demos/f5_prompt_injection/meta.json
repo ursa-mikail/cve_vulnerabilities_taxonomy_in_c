@@ -1,0 +1,22 @@
+{
+  "family": "F5",
+  "family_name": "Injection and Input Interpretation",
+  "language": "python",
+  "subcategory": "Prompt injection / AI agent manipulation",
+  "csv_subcategory": "Prompt injection / AI agent manipulation",
+  "cwe": "CWE-1427",
+  "title": "Prompt injection against an AI agent (toy model)",
+  "root_cause": "A language model receives developer instructions, user requests and untrusted content in one undifferentiated stream of text, so text inside a web page or email can be obeyed as an instruction. It is the same family as SQL injection (data interpreted as commands) in a new interpreter. This demo uses a deliberately naive rule-based stand-in for a model; it illustrates the architecture, it does not run or test any real LLM.",
+  "defenses": [
+    "Give each agent task only the tools it needs (least privilege); a summarizer should not be able to send email.",
+    "Require human confirmation for sensitive or irreversible actions.",
+    "Enforce allow-lists (recipients, domains, file paths) in code outside the model.",
+    "Keep untrusted content clearly separated and never let it widen the agent's permissions.",
+    "Treat model-side filtering as a mitigation that reduces risk, not a guarantee."
+  ],
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

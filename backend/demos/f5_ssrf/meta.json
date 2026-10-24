@@ -1,0 +1,22 @@
+{
+  "family": "F5",
+  "family_name": "Injection and Input Interpretation",
+  "language": "python",
+  "subcategory": "Server-side request forgery (SSRF)",
+  "csv_subcategory": "Server-side request forgery (SSRF)",
+  "cwe": "CWE-918",
+  "title": "SSRF through a string-prefix URL allow-list",
+  "root_cause": "The server fetches a URL chosen by the user and tries to restrict it with a text check, but URL syntax has several ways to put one host in the text and a different host in the request ('example.com.evil.test', userinfo '@', redirects, IP encodings). The program and the HTTP client disagree about what the URL means, so the attacker can aim the server's own network position at internal services and cloud metadata endpoints.",
+  "defenses": [
+    "Parse the URL with the same library that will make the request, then compare the parsed host exactly against an allow-list.",
+    "Resolve DNS yourself, reject private, loopback and link-local addresses, and connect to the resolved IP (defeats DNS rebinding).",
+    "Disable redirects or re-validate every hop.",
+    "Block egress from the service to internal ranges and to the cloud metadata address at the network layer.",
+    "Require metadata-service session tokens (IMDSv2-style) so a plain GET cannot read credentials."
+  ],
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

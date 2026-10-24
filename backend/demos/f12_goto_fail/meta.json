@@ -1,7 +1,9 @@
 {
   "family": "F12",
   "family_name": "Logic, Error Handling and Privilege",
+  "language": "c",
   "subcategory": "Always-incorrect control flow",
+  "csv_subcategory": "Incorrect control flow or logic",
   "cwe": "CWE-670",
   "title": "The \"goto fail\" bug: a duplicated line skips verification",
   "root_cause": "A duplicated, unconditional 'goto fail;' runs right after the params check, before the signature check ever executes. Because err still holds 0 (success) from the previous check, verify() reports success without ever having checked the signature.",
@@ -12,5 +14,9 @@
     "Write unit tests for the negative paths specifically: a bad signature must make verification fail, every time."
   ],
   "sanitize": "address,undefined",
-  "timeout_s": 5
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "BUG: accepted",
+    "fixed": "correctly rejected"
+  }
 }

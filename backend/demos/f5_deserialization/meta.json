@@ -1,0 +1,22 @@
+{
+  "family": "F5",
+  "family_name": "Injection and Input Interpretation",
+  "language": "python",
+  "subcategory": "Unsafe deserialization",
+  "csv_subcategory": "Unsafe deserialization",
+  "cwe": "CWE-502",
+  "title": "Remote code execution through unsafe deserialization",
+  "root_cause": "Some serialization formats (Python pickle, Java ObjectInputStream, PHP unserialize, .NET BinaryFormatter, Ruby Marshal, YAML with tags) can describe 'rebuild this object by calling this function'. Deserializing untrusted bytes therefore means executing instructions chosen by the sender. This is the mechanism behind many Java and PHP framework CVEs, including famous ones such as Apache Struts and Log4Shell-style gadget chains.",
+  "defenses": [
+    "Never deserialize untrusted data with a format that can instantiate arbitrary types.",
+    "Use data-only formats (JSON, Protocol Buffers) and validate every field against a schema.",
+    "If a rich format is unavoidable, use an allow-list of permitted classes, and sign or MAC the data so only your server can have produced it.",
+    "Keep deserializing code paths free of dangerous 'gadget' classes and run them with least privilege.",
+    "Treat cookies, cache entries and message-queue payloads as untrusted unless authenticated."
+  ],
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

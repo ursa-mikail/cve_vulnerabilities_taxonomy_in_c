@@ -1,7 +1,9 @@
 {
   "family": "F3",
   "family_name": "Integer and Numeric Errors",
+  "language": "c",
   "subcategory": "Integer overflow feeding an allocation size",
+  "csv_subcategory": "Integer overflow / wraparound",
   "cwe": "CWE-190",
   "title": "Integer overflow leading to a heap overflow",
   "root_cause": "count * sizeof(item) is computed in 32-bit arithmetic. When the true product exceeds 2^32, it silently wraps to a small number, so malloc() allocates far less memory than the code then writes into.",
@@ -12,5 +14,9 @@
     "Build with -fsanitize=undefined,integer in testing to catch wraparounds."
   ],
   "sanitize": "address,undefined",
-  "timeout_s": 5
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "SANITIZER",
+    "fixed": "checked failure"
+  }
 }

@@ -1,7 +1,9 @@
 {
   "family": "F8",
   "family_name": "Cryptography and Secrets",
+  "language": "c",
   "subcategory": "Weak / predictable randomness",
+  "csv_subcategory": "Weak / predictable randomness",
   "cwe": "CWE-338",
   "title": "Predictable tokens from rand() seeded by the clock",
   "root_cause": "srand(time(NULL)) seeds the pseudo-random generator with the current second. Anyone who can estimate when the token was generated only has to try each of that day's ~86,400 possible seeds to reproduce it exactly.",
@@ -12,5 +14,9 @@
     "Audit every call site that currently uses rand()/srand() for a security purpose and replace it."
   ],
   "sanitize": "address,undefined",
-  "timeout_s": 5
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "IDENTICAL",
+    "fixed": "completely different"
+  }
 }

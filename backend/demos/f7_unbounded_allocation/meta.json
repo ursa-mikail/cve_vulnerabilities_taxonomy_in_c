@@ -1,7 +1,9 @@
 {
   "family": "F7",
   "family_name": "Resource Exhaustion, Availability and OOM",
+  "language": "c",
   "subcategory": "Unbounded memory allocation",
+  "csv_subcategory": "Memory allocation without limits (OOM)",
   "cwe": "CWE-770",
   "title": "Unbounded allocation loop exhausts memory",
   "root_cause": "Nothing in the loop limits how much memory it can claim. Given enough time or a large enough request, this consumes all memory available to the process -- the classic cause of an out-of-memory condition.",
@@ -13,5 +15,9 @@
   ],
   "sanitize": "address,undefined",
   "timeout_s": 6,
-  "rss_limit_mb": 100
+  "rss_limit_mb": 100,
+  "expect": {
+    "vulnerable": "SANITIZER",
+    "fixed": "policy cap"
+  }
 }

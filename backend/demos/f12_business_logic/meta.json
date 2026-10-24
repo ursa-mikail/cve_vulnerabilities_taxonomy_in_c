@@ -1,0 +1,22 @@
+{
+  "family": "F12",
+  "family_name": "Logic, Error Handling and Privilege",
+  "language": "javascript",
+  "subcategory": "Incorrect control flow or logic",
+  "csv_subcategory": "Incorrect control flow or logic",
+  "cwe": "CWE-840",
+  "title": "Business-logic flaw: negative quantity in a cart",
+  "root_cause": "The code runs exactly as written, but the rules that make the feature safe (quantities are positive, prices come from the server, steps happen in order) were never expressed. No sanitizer or memory checker can find this class, because nothing is technically wrong with any single operation. It appears in payments, coupons, rate limits and workflow engines in every language.",
+  "defenses": [
+    "Write the business invariants down and enforce them on the server for every input, including 'impossible' values.",
+    "Never trust prices, discounts or totals computed by the client; recompute from server-side data.",
+    "Reject out-of-range, negative, zero and non-integer quantities explicitly.",
+    "Add abuse-case tests (negative, huge, duplicate, out-of-order) next to the happy-path tests.",
+    "Log and alert on anomalies such as negative totals."
+  ],
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

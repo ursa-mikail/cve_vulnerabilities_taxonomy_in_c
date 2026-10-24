@@ -1,0 +1,22 @@
+{
+  "family": "F7",
+  "family_name": "Resource Exhaustion, Availability and OOM",
+  "language": "javascript",
+  "subcategory": "Algorithmic complexity / ReDoS",
+  "csv_subcategory": "Algorithmic complexity / ReDoS",
+  "cwe": "CWE-1333",
+  "title": "Regular-expression denial of service (ReDoS)",
+  "root_cause": "A backtracking regex engine tries alternative ways to match; with nested or overlapping quantifiers the number of alternatives grows exponentially with input length. A tiny hostile input therefore consumes unbounded CPU. Java, JavaScript, Python, Ruby, PHP and .NET engines are all affected, and the bug sits in validation code, not in the engine.",
+  "defenses": [
+    "Avoid nested quantifiers and overlapping alternations such as (a+)+, (a|a)*, (.*)*.",
+    "Cap the length of untrusted input before it reaches a regex.",
+    "Use a linear-time engine (RE2, Rust regex, Go regexp) for untrusted input.",
+    "Set match timeouts where the runtime supports them (.NET, Java 9+ patterns, Node worker threads).",
+    "Lint patterns in CI with a ReDoS detector."
+  ],
+  "timeout_s": 8,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

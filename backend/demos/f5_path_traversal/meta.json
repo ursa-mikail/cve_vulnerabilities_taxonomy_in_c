@@ -1,0 +1,22 @@
+{
+  "family": "F5",
+  "family_name": "Injection and Input Interpretation",
+  "language": "javascript",
+  "subcategory": "Path traversal / link following",
+  "csv_subcategory": "Path traversal / link following",
+  "cwe": "CWE-22",
+  "title": "Path traversal out of the web root",
+  "root_cause": "A user-supplied name is joined onto a base directory and handed to the filesystem, which happily resolves '..' segments, symlinks and absolute paths. The program checked (or assumed) the name was a file inside the folder, but the operating system interprets it as a path.",
+  "defenses": [
+    "Canonicalize first (resolve + realpath), then check the result is inside the allowed directory -- never check the raw string.",
+    "Prefer an allow-list or an ID lookup (files/<id>) over accepting file names from users at all.",
+    "Reject absolute paths, NUL bytes and path separators in names that should be a single file name.",
+    "Run the service with a filesystem view limited to the data it needs (chroot, container mounts, read-only roots).",
+    "Remember symlinks: a lexical prefix check alone is not enough."
+  ],
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

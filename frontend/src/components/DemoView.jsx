@@ -57,10 +57,15 @@ export default function DemoView({ demoId, families }) {
       <div className="demo-meta">
         <span className="pill">{demo.family}</span>
         <span className="pill">{demo.cwe}</span>
+        <span className="pill lang">{demo.language_label}</span>
         <span className="pill subtle">{demo.subcategory}</span>
       </div>
       <p className="root-cause">
         <strong>Root cause:</strong> {demo.root_cause}
+      </p>
+      <p className="lang-note">
+        Written in {demo.language_label} as an illustration. The weakness ({demo.cwe}) is not specific to this language;
+        see <a href={`#/explore?family=${demo.family}`}>which systems and languages it shows up in</a>.
       </p>
 
       <div className="tabs">
@@ -74,7 +79,7 @@ export default function DemoView({ demoId, families }) {
 
       <div className="demo-grid">
         <div>
-          <CodePanel code={variant === 'vulnerable' ? demo.code.vulnerable : demo.code.fixed} />
+          <CodePanel code={variant === 'vulnerable' ? demo.code.vulnerable : demo.code.fixed} language={demo.language_label} variant={variant} />
           <button className="run-btn" onClick={handleRun} disabled={loading}>
             {loading ? 'Running...' : `Run ${variant} version in sandbox`}
           </button>

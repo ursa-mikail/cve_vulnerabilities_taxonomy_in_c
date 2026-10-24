@@ -1,7 +1,9 @@
 {
   "family": "F4",
   "family_name": "Type and Data Representation Errors",
+  "language": "c",
   "subcategory": "sizeof applied to a pointer",
+  "csv_subcategory": "Wrong sizeof / pointer arithmetic",
   "cwe": "CWE-467",
   "title": "sizeof(pointer) silently wipes less than intended",
   "root_cause": "Inside wipe(), buf is a function parameter -- a pointer -- so sizeof(buf) is the size of a pointer (commonly 8 bytes on 64-bit systems), not the size of the array the caller passed in. No crash happens; the bug is silent.",
@@ -12,5 +14,9 @@
     "For secrets specifically, use explicit_bzero or memset_s, which also resist compiler removal."
   ],
   "sanitize": "address,undefined",
-  "timeout_s": 5
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "did not work",
+    "fixed": "fully gone"
+  }
 }

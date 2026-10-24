@@ -1,0 +1,22 @@
+{
+  "family": "F5",
+  "family_name": "Injection and Input Interpretation",
+  "language": "javascript",
+  "subcategory": "Cross-site scripting (XSS)",
+  "csv_subcategory": "Cross-site scripting (XSS)",
+  "cwe": "CWE-79",
+  "title": "Cross-site scripting through unescaped output",
+  "root_cause": "Untrusted text is placed into an HTML page without being encoded, so the browser's HTML parser reads the attacker's characters as markup instead of as text. XSS is the single most common CWE in the CVE record, and it appears in every server-side language and templating system.",
+  "defenses": [
+    "Encode output for its exact context (HTML body, attribute, JavaScript string, URL, CSS) -- use the template engine's auto-escaping and keep it on.",
+    "Avoid sinks that parse HTML from strings (innerHTML, document.write, v-html, dangerouslySetInnerHTML) unless the input is sanitized by a maintained library.",
+    "Send a Content-Security-Policy that blocks inline scripts, so a missed escape is not automatically exploitable.",
+    "Mark session cookies HttpOnly so a script that does run cannot read them.",
+    "Test with a payload corpus; do not rely on blocklists of tag names."
+  ],
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

@@ -1,7 +1,9 @@
 {
   "family": "F14",
   "family_name": "User Interface and Deception",
+  "language": "c",
   "subcategory": "UI misrepresentation / spoofing",
+  "csv_subcategory": "UI misrepresentation / spoofing",
   "cwe": "CWE-451",
   "title": "Forged status line via newline injection in displayed text",
   "root_cause": "Attacker-controlled text is rendered inside a trusted interface with no escaping, so the attacker can shape what the user believes the program said. The code ran correctly; the user was deceived. The same idea underlies clickjacking, spoofed dialogs, and terminal escape-sequence injection.",
@@ -13,5 +15,9 @@
     "For web UIs, use frame-ancestors / X-Frame-Options and confirm dangerous actions out-of-band."
   ],
   "sanitize": "address,undefined",
-  "timeout_s": 5
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "forged .VERIFIED. line",
+    "fixed": "actual verification result"
+  }
 }

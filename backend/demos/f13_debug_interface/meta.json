@@ -1,7 +1,9 @@
 {
   "family": "F13",
   "family_name": "Hardware, Firmware and Platform Design",
+  "language": "c",
   "subcategory": "Hardware / firmware design weakness",
+  "csv_subcategory": "Hardware / firmware design weakness",
   "cwe": "CWE-1191",
   "title": "Debug port left enabled on a production device",
   "root_cause": "The flaw is in the design, not in a line of code: a privileged debug/test path was never disabled for shipped units and does not check who is asking or what lifecycle state the device is in. Anyone with physical (or sometimes network) access to the interface can read secrets and take control. Software patches often cannot fix it once the hardware has shipped.",
@@ -13,5 +15,9 @@
     "Ship signed, updatable firmware so a design flaw has at least a remediation path."
   ],
   "sanitize": "address,undefined",
-  "timeout_s": 5
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "Device secret dumped",
+    "fixed": "request refused"
+  }
 }

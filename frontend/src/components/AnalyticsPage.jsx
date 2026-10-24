@@ -5,14 +5,7 @@ import TrendChart from './charts/TrendChart.jsx';
 import DonutChart from './charts/DonutChart.jsx';
 import HBarList from './charts/HBarList.jsx';
 
-const FAMILY_COLORS = {
-  F1: '#4da3ff', F2: '#7c8cff', F3: '#9b6bff', F4: '#c06bff',
-  F5: '#ff6bd6', F6: '#ff6b8a', F7: '#ff8a4d', F8: '#f2c43b',
-  F9: '#c3e04d', F10: '#5de08a', F11: '#2ecfc2', F12: '#2ea7df',
-  F13: '#8a97a8', F14: '#5c6b7f', U0: '#4a5568', R0: '#394250',
-};
-
-const SEVERITY_COLORS = { CRITICAL: '#ff5c5c', HIGH: '#f2a93b', MEDIUM: '#f2d43b', LOW: '#2ecc71' };
+import { FAMILY_COLORS, SEVERITY_COLORS } from '../colors.js';
 
 function StatCard({ label, value, sub }) {
   return (
@@ -35,7 +28,7 @@ export default function AnalyticsPage({ families: taxonomyFamilies }) {
 
   const taxonomyDemoByFamily = useMemo(() => {
     const m = {};
-    (taxonomyFamilies || []).forEach((f) => { m[f.id] = f.demos[0]; });
+    (taxonomyFamilies || []).forEach((f) => { m[f.id] = f.demos; });
     return m;
   }, [taxonomyFamilies]);
 
@@ -87,7 +80,7 @@ export default function AnalyticsPage({ families: taxonomyFamilies }) {
       <h1>CVE Analytics</h1>
       <p className="analytics-intro">
         {data.total_cves.toLocaleString()} CVE records ({data.year_range[0]}&ndash;{data.year_range[1]}), each mapped to one
-        of the taxonomy families above by CWE and, where no CWE was available, by the wording of its own description.
+        of the taxonomy families by CWE and, where no CWE was available, by the wording of its own description. See the Coverage tab for how strong the evidence is.
         Hover any chart for exact numbers; click a family bar to drill in.
       </p>
 
@@ -116,11 +109,12 @@ export default function AnalyticsPage({ families: taxonomyFamilies }) {
               <span className="meta" style={{ marginLeft: '0.6rem' }}>{focused.total.toLocaleString()} CVEs</span>
             </div>
             <div className="focus-actions">
-              {taxonomyDemoByFamily[focused.id] && (
-                <a className="run-btn-link" href={`#/demo/${taxonomyDemoByFamily[focused.id].id}`}>
-                  Open the live demo &rarr;
+              {(taxonomyDemoByFamily[focused.id] || []).length > 0 && (
+                <a className="run-btn-link" href={`#/demo/${taxonomyDemoByFamily[focused.id][0].id}`}>
+                  Open the live demos ({taxonomyDemoByFamily[focused.id].length}) &rarr;
                 </a>
               )}
+              <a className="run-btn-link" href={`#/explore?family=${focused.id}`}>Explore by system &rarr;</a>
               <button className="close-focus" onClick={() => setSelectedFamily(null)}>Close</button>
             </div>
           </div>

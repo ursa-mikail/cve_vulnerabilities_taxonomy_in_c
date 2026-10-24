@@ -5,24 +5,25 @@ function statusOf(result) {
   if (result.stage === 'compile') return 'error';
   if (result.timedOut) return 'warn';
   if (result.sanitizerIssue) return 'error';
+  if (result.verdict === 'exploited') return 'error';
   if (result.exitCode === 0) return 'ok';
   return 'warn';
 }
 
 export default function OutputPanel({ result, loading }) {
-  if (loading) return <div className="output-panel loading">Compiling and running in the sandbox...</div>;
+  if (loading) return <div className="output-panel loading">Running in the sandbox...</div>;
   if (!result)
     return (
       <div className="output-panel empty">
-        Click "Run in sandbox" to compile and execute this version.
+        Click "Run in sandbox" to execute this version.
       </div>
     );
 
   const status = statusOf(result);
   const labels = {
-    ok: 'Ran cleanly',
+    ok: result.verdict === 'blocked' ? 'Attack blocked' : 'Ran cleanly',
     warn: result.timedOut ? 'Timed out / resource-limited' : 'Exited with an error',
-    error: result.stage === 'compile' ? 'Compile error' : 'Security issue detected',
+    error: result.stage === 'compile' ? 'Compile error' : result.verdict === 'exploited' ? 'Attack succeeded' : 'Security issue detected',
   };
   const label = labels[status];
 

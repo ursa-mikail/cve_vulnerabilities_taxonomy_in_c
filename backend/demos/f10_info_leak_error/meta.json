@@ -1,7 +1,9 @@
 {
   "family": "F10",
   "family_name": "Information Exposure and Side Channels",
+  "language": "c",
   "subcategory": "Sensitive data in error messages",
+  "csv_subcategory": "Secrets in logs / errors",
   "cwe": "CWE-209",
   "title": "Internal file paths leaked in an error message",
   "root_cause": "The error sent to the client embeds the exact internal path and the raw strerror() text. Neither corrupts memory, but both hand an attacker a map of the server's internals -- the leak is in what gets disclosed, not in a bug in the memory model.",
@@ -12,5 +14,9 @@
     "Treat log output and error responses as separate channels with separate audiences."
   ],
   "sanitize": "address,undefined",
-  "timeout_s": 5
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "exact internal file layout",
+    "fixed": "only a reference number"
+  }
 }

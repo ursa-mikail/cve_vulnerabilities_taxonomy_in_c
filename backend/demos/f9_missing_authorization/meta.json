@@ -1,7 +1,9 @@
 {
   "family": "F9",
   "family_name": "Authentication, Authorization and Access Control",
+  "language": "c",
   "subcategory": "Insecure direct object reference (IDOR)",
+  "csv_subcategory": "Missing or incorrect authorization",
   "cwe": "CWE-639",
   "title": "Reading another user's record (IDOR)",
   "root_cause": "get_record() looks the record up by the id the caller supplied and returns it as soon as it exists. It never compares the record's owner to the authenticated requester, so any logged-in user can read any other user's data just by changing the id.",
@@ -12,5 +14,9 @@
     "Write negative tests: user A requesting user B's object should always fail."
   ],
   "sanitize": "address,undefined",
-  "timeout_s": 5
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "Alice just read Bob's private note",
+    "fixed": "denied"
+  }
 }

@@ -1,0 +1,22 @@
+{
+  "family": "F8",
+  "family_name": "Cryptography and Secrets",
+  "language": "python",
+  "subcategory": "Hard-coded or default credentials / keys",
+  "csv_subcategory": "Hard-coded or default credentials / keys",
+  "cwe": "CWE-798",
+  "title": "Hard-coded credentials in a shipped artifact",
+  "root_cause": "A password, API key or cryptographic key is written into source, firmware or a container image. Everyone who gets a copy gets the secret, it is identical across every installation, and it cannot be changed without shipping new code. This is one of the most common weaknesses in IoT, network equipment and cloud tooling, in any language.",
+  "defenses": [
+    "Provision a unique random secret per deployment (first-boot setup, secret manager, injected environment).",
+    "Store passwords only as salted, slow hashes (Argon2, scrypt, PBKDF2) and compare in constant time.",
+    "Scan repositories, images and firmware for secrets in CI and rotate anything that ever leaked.",
+    "Never ship default credentials; force a change at first use.",
+    "Prefer short-lived, scoped tokens over long-lived shared keys."
+  ],
+  "timeout_s": 8,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

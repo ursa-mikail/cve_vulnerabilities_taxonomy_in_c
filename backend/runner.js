@@ -53,8 +53,67 @@ function summarize(stderr, lines) {
   return stderr.split('\n').slice(0, lines || 18).join('\n');
 }
 
+// The taxonomy is about weaknesses, not languages: the same invariant breaks in C, JavaScript,
+// Python, Java... A demo is just a small, runnable illustration, so each one declares its language.
+const LANGUAGES = {
+  c: { ext: 'c', label: 'C' },
+  javascript: { ext: 'js', label: 'JavaScript (Node.js)', cmd: 'node', args: ['--max-old-space-size=96', '--disallow-code-generation-from-strings'] },
+  python: { ext: 'py', label: 'Python 3', cmd: 'python3', args: ['-I', '-B'] },
+};
+
+function sourceFile(meta, variant) {
+  const lang = LANGUAGES[meta.language || 'c'];
+  return path.join(meta.dir, (variant === 'fixed' ? 'fixed.' : 'vulnerable.') + lang.ext);
+}
+
+// Demos that cannot crash (logic, injection, auth...) say what happened in plain words.
+function detectVerdict(stdout) {
+  if (/\[ATTACK SUCCEEDED\]/.test(stdout)) return 'exploited';
+  if (/\[BLOCKED\]/.test(stdout)) return 'blocked';
+  return null;
+}
+
+async function runInterpreted(meta, variant) {
+  const lang = LANGUAGES[meta.language];
+  const srcFile = sourceFile(meta, variant);
+  const tmpBase = fs.mkdtempSync(path.join(os.tmpdir(), 'demo-'));
+  const timeoutS = meta.timeout_s || 5;
+  const t0 = Date.now();
+  const exec = await run(
+    'timeout',
+    ['-k', '1', timeoutS + 's', lang.cmd, ...lang.args, srcFile],
+    {
+      timeoutMs: (timeoutS + 3) * 1000,
+      cwd: tmpBase,
+      // Minimal environment: demos never need the host's variables.
+      env: { PATH: process.env.PATH, HOME: tmpBase, TMPDIR: tmpBase, PYTHONDONTWRITEBYTECODE: '1', PYTHONIOENCODING: 'utf-8', LANG: 'C.UTF-8' },
+    }
+  );
+  const durationMs = Date.now() - t0;
+  try { fs.rmSync(tmpBase, { recursive: true, force: true }); } catch (e) { /* ignore */ }
+  const timedOut = exec.killedForTimeout || exec.code === 124;
+  return {
+    stage: 'run',
+    language: meta.language,
+    success: exec.code === 0,
+    exitCode: exec.code,
+    signal: exec.signal,
+    timedOut,
+    durationMs,
+    stdout: exec.stdout,
+    stderr: exec.stderr,
+    verdict: detectVerdict(exec.stdout),
+    sanitizerIssue: null,
+    sanitizerSummary: null,
+  };
+}
+
 async function runDemo(meta, variant) {
-  const srcFile = path.join(meta.dir, variant === 'fixed' ? 'fixed.c' : 'vulnerable.c');
+  const language = meta.language || 'c';
+  if (!LANGUAGES[language]) throw new Error('unsupported demo language: ' + language);
+  if (language !== 'c') return runInterpreted(meta, variant);
+
+  const srcFile = sourceFile(meta, variant);
   const tmpBase = fs.mkdtempSync(path.join(os.tmpdir(), 'demo-'));
   const binPath = path.join(tmpBase, 'a.out');
 
@@ -75,6 +134,7 @@ async function runDemo(meta, variant) {
     try { fs.rmSync(tmpBase, { recursive: true, force: true }); } catch (e) { /* ignore */ }
     return {
       stage: 'compile',
+      language: 'c',
       success: false,
       exitCode: compile.code,
       timedOut: compile.killedForTimeout,
@@ -120,6 +180,7 @@ async function runDemo(meta, variant) {
 
   return {
     stage: 'run',
+    language: 'c',
     success: exec.code === 0,
     exitCode: exec.code,
     signal: exec.signal,
@@ -127,9 +188,10 @@ async function runDemo(meta, variant) {
     durationMs,
     stdout: exec.stdout,
     stderr: exec.stderr,
+    verdict: detectVerdict(exec.stdout),
     sanitizerIssue,
     sanitizerSummary: sanitizerIssue ? summarize(exec.stderr) : null,
   };
 }
 
-module.exports = { runDemo };
+module.exports = { runDemo, LANGUAGES, sourceFile };

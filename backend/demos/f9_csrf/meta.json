@@ -1,0 +1,22 @@
+{
+  "family": "F9",
+  "family_name": "Authentication, Authorization and Access Control",
+  "language": "javascript",
+  "subcategory": "Cross-site request forgery (CSRF)",
+  "csv_subcategory": "Cross-site request forgery (CSRF)",
+  "cwe": "CWE-352",
+  "title": "Cross-site request forgery against a logged-in user",
+  "root_cause": "The server treats a valid session cookie as proof that the user intended the request. Browsers attach cookies automatically, even when another site's page triggers the request, so an attacker's page can act with the victim's authority. The flaw is a missing check of intent, and it exists in every web framework. This demo is a model of browser and server behaviour, not a real browser.",
+  "defenses": [
+    "Require an unpredictable per-session anti-CSRF token on every state-changing request (or use the framework's built-in protection).",
+    "Set session cookies SameSite=Lax or Strict so browsers withhold them from cross-site requests.",
+    "Verify the Origin / Referer header on state-changing requests.",
+    "Never change state on GET requests.",
+    "Require re-authentication for high-value actions."
+  ],
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

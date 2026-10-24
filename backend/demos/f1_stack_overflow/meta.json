@@ -1,7 +1,9 @@
 {
   "family": "F1",
   "family_name": "Spatial Memory Safety",
+  "language": "c",
   "subcategory": "Stack-based buffer overflow",
+  "csv_subcategory": "Classic buffer overflow (stack/heap)",
   "cwe": "CWE-121",
   "title": "Stack buffer overflow via strcpy",
   "root_cause": "strcpy() has no idea how big the destination buffer is, so it writes every byte of the source string even when that runs past the end of the stack buffer.",
@@ -12,5 +14,9 @@
     "Run AddressSanitizer in testing and fuzz any function that copies external input."
   ],
   "sanitize": "address,undefined",
-  "timeout_s": 5
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "SANITIZER",
+    "fixed": "returned normally"
+  }
 }

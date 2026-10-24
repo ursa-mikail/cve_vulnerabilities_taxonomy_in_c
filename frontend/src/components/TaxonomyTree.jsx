@@ -13,7 +13,7 @@ export default function TaxonomyTree({ families, currentId }) {
   }
 
   return (
-    <nav className="tree" aria-label="Vulnerability family taxonomy">
+    <nav className="tree" aria-label="Weakness family taxonomy">
       {families.map((fam) => (
         <div key={fam.id} className="tree-family">
           <button className="tree-family-btn" onClick={() => toggle(fam.id)}>
@@ -27,7 +27,7 @@ export default function TaxonomyTree({ families, currentId }) {
               {fam.demos.map((d) => (
                 <li key={d.id}>
                   <a href={`#/demo/${d.id}`} className={d.id === currentId ? 'active' : ''}>
-                    {d.title}
+                    {d.title} <span className="lang-tag">{d.language_label}</span>
                   </a>
                 </li>
               ))}

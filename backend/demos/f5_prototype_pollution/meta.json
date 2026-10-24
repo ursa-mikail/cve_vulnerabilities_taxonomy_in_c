@@ -1,0 +1,22 @@
+{
+  "family": "F5",
+  "family_name": "Injection and Input Interpretation",
+  "language": "javascript",
+  "subcategory": "Prototype pollution / object property injection",
+  "csv_subcategory": "Prototype pollution / object property injection",
+  "cwe": "CWE-1321",
+  "title": "Prototype pollution through a recursive merge",
+  "root_cause": "In JavaScript, every object inherits from a shared prototype. A merge/clone/set-by-path helper that follows attacker-chosen keys such as '__proto__' ends up writing to that shared object, so one request changes the behaviour of the whole process. The attacker's data is interpreted as an instruction about object structure. Similar 'mass assignment' flaws exist in Ruby, PHP and Java object binders.",
+  "defenses": [
+    "Skip '__proto__', 'constructor' and 'prototype' when walking keys from untrusted objects.",
+    "Use Object.create(null) or Map for dictionaries built from user input.",
+    "Check ownership with Object.hasOwn before reading or merging nested properties.",
+    "Validate incoming JSON against a schema that lists the allowed keys.",
+    "Keep dependencies that perform deep merges patched (many CVEs sit in utility libraries)."
+  ],
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

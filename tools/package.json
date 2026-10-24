@@ -1,0 +1,6 @@
+{
+  "name": "cve-lab-tools",
+  "private": true,
+  "description": "Offline data-building tools (not shipped in the Docker image)",
+  "dependencies": { "csv-parse": "^5.5.6" }
+}

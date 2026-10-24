@@ -1,0 +1,111 @@
+{
+  "title": "CVE Weakness Taxonomy",
+  "scope": "Families are defined by the root-cause invariant that was broken, not by programming language, product type or severity. The demos are small illustrations of each invariant; the language they happen to be written in (C, JavaScript, Python) is incidental. Every CVE record lands in exactly one family or in one of two bookkeeping buckets.",
+  "families": [
+    {
+      "id": "F1", "name": "Spatial Memory Safety",
+      "blurb": "Code reads or writes outside the bounds of the object it was given.",
+      "shows_up_in": "Native code of any kind: C/C++ programs, kernels, firmware, browsers and media parsers; `unsafe` blocks in Rust, Go and C#; JNI and native extensions; the C core underneath Python, PHP, Node and the JVM. Memory-safe languages remove this family from application code, not from the stack beneath it.",
+      "anchors": [{"cve": "CVE-2014-0160", "label": "Heartbleed (OpenSSL)"}, {"cve": "CVE-2023-4863", "label": "libwebp heap overflow"}]
+    },
+    {
+      "id": "F2", "name": "Temporal Memory Safety",
+      "blurb": "An object is used when it is not in a valid state: freed, uninitialized, null, or out of scope.",
+      "shows_up_in": "Use-after-free and double free in native code; NULL / nil dereference in every language (Java NullPointerException, Go nil panic, Kotlin, C#); uninitialized variables in C and in some scripting runtimes.",
+      "anchors": [{"cve": "CVE-2019-0708", "label": "BlueKeep (use after free)"}, {"cve": "CVE-2022-0847", "label": "Dirty Pipe (uninitialized flags)"}]
+    },
+    {
+      "id": "F3", "name": "Integer and Numeric Errors",
+      "blurb": "Arithmetic or a conversion produces a number the programmer did not expect.",
+      "shows_up_in": "Any language with fixed-width integers (C, Java, Go, Rust release builds, Solidity); floating-point precision in JavaScript; unit, currency and rounding logic in financial code; size calculations that later feed an allocation."
+    },
+    {
+      "id": "F4", "name": "Type and Data Representation Errors",
+      "blurb": "Data is interpreted as something it is not: wrong type, size, or layout.",
+      "shows_up_in": "Type confusion in JIT and VM engines (V8, the JVM, PHP's unserialize); loose-typing comparisons such as PHP/JavaScript '==' magic hashes; union and cast misuse in C/C++; deserializing into the wrong class.",
+      "anchors": [{"cve": "CVE-2021-21224", "label": "V8 type confusion (Chrome)"}]
+    },
+    {
+      "id": "F5", "name": "Injection and Input Interpretation",
+      "blurb": "Untrusted data is interpreted as a command, query, path, markup, code or instruction.",
+      "shows_up_in": "Every stack. SQL, shell, HTML/JavaScript (XSS), LDAP/XPath/XML, templates and expression languages, file paths and URLs (SSRF), serialized objects, format strings, object keys (prototype pollution) and prompts to LLM agents. This is the largest family in the CVE record.",
+      "anchors": [{"cve": "CVE-2021-44228", "label": "Log4Shell (Java)"}, {"cve": "CVE-2014-6271", "label": "Shellshock (Bash)"}, {"cve": "CVE-2022-42889", "label": "Text4Shell (Java)"}]
+    },
+    {
+      "id": "F6", "name": "Concurrency and Timing",
+      "blurb": "The bug only appears under a particular timing or interleaving of events.",
+      "shows_up_in": "Threads and processes in any language: kernel races, file TOCTOU, async ordering bugs in JavaScript, database transaction races, double-spend in distributed or payment systems, signal-handler races.",
+      "anchors": [{"cve": "CVE-2016-5195", "label": "Dirty COW (Linux kernel)"}]
+    },
+    {
+      "id": "F7", "name": "Resource Exhaustion, Availability and OOM",
+      "blurb": "A finite resource is unbounded or never released.",
+      "shows_up_in": "Anything with finite CPU, memory, disk, sockets or file descriptors: ReDoS in JavaScript, Python and Java regex engines, zip bombs, deeply nested JSON/GraphQL/XML, unbounded queues and caches, leaks in long-running services."
+    },
+    {
+      "id": "F8", "name": "Cryptography and Secrets",
+      "blurb": "Secrets or randomness are handled in a way an attacker can predict or recover.",
+      "shows_up_in": "Any code that uses crypto or holds a secret: weak PRNGs (rand(), Math.random()), hard-coded keys and passwords in source, firmware and container images, missing certificate validation in HTTP clients, ECB mode and static IVs, cleartext storage.",
+      "anchors": [{"cve": "CVE-2008-0166", "label": "Debian OpenSSL predictable keys"}, {"cve": "CVE-2020-0601", "label": "CurveBall (Windows CryptoAPI)"}]
+    },
+    {
+      "id": "F9", "name": "Authentication, Authorization and Access Control",
+      "blurb": "The code does not enforce who is allowed to do or see what.",
+      "shows_up_in": "Web apps and APIs (missing auth, IDOR, CSRF, session handling), cloud IAM policy, OS file and process permissions, mobile app components, embedded web UIs."
+    },
+    {
+      "id": "F10", "name": "Information Exposure and Side Channels",
+      "blurb": "Sensitive data leaks without any memory corruption.",
+      "shows_up_in": "Verbose errors, logs, debug endpoints, backups and caches; CPU speculative-execution and timing side channels; observable differences in responses or comparisons.",
+      "anchors": [{"cve": "CVE-2017-5753", "label": "Spectre v1"}, {"cve": "CVE-2017-5754", "label": "Meltdown"}]
+    },
+    {
+      "id": "F11", "name": "Supply Chain, Configuration and Integrity",
+      "blurb": "The program trusts code, data, or settings it should not.",
+      "shows_up_in": "Package ecosystems (npm, PyPI, Maven, crates), build pipelines and update channels, default credentials and insecure defaults, DLL / library search paths, container images, unsigned or unverified artifacts."
+    },
+    {
+      "id": "F12", "name": "Logic, Error Handling and Privilege",
+      "blurb": "A decision is wrong or skipped: an error is ignored or a branch misbehaves.",
+      "shows_up_in": "Business-logic flaws (negative quantities, skippable workflow steps), fail-open error handling, swallowed exceptions, wrong operator or skipped check in any language, privileged code that does not drop or check privilege."
+    },
+    {
+      "id": "F13", "name": "Hardware, Firmware and Platform Design",
+      "blurb": "The flaw is in the design of the device or platform, not in one line of code.",
+      "shows_up_in": "CPUs and SoCs, BIOS/UEFI, baseband and boot ROM, embedded and IoT firmware, industrial controllers: flaws that no single source-level patch can fully repair once the hardware ships."
+    },
+    {
+      "id": "F14", "name": "User Interface and Deception",
+      "blurb": "The program works as coded but the user is misled about what is happening.",
+      "shows_up_in": "Browsers and apps: clickjacking, spoofed dialogs and address bars, homograph domains, terminal escape-sequence injection, misleading permission or signature prompts."
+    }
+  ],
+  "bookkeeping": [
+    {"id": "U0", "name": "Unclassified", "blurb": "The public record does not say what kind of weakness this is."},
+    {"id": "R0", "name": "Rejected or Withdrawn", "blurb": "The CVE ID was rejected or withdrawn and describes no vulnerability."}
+  ],
+  "cross_cutting": [
+    {"name": "Web applications and APIs", "families": ["F5", "F9", "F10", "F11", "F12"]},
+    {"name": "Native code, kernels and drivers", "families": ["F1", "F2", "F3", "F4", "F6", "F7"]},
+    {"name": "Browsers and JIT engines", "families": ["F1", "F2", "F4", "F14"]},
+    {"name": "Mobile apps", "families": ["F9", "F8", "F10", "F5"]},
+    {"name": "Cloud, containers and CI/CD", "families": ["F9", "F11", "F8", "F5"]},
+    {"name": "Embedded, IoT and industrial control", "families": ["F13", "F11", "F8", "F9", "F1"]},
+    {"name": "AI / LLM applications and agents", "families": ["F5", "F9", "F10", "F11"]},
+    {"name": "Open-source supply chain", "families": ["F11", "F8"]}
+  ],
+  "cross_cutting_note": "These are domains, not families. A domain is where a flaw lives; a family is how the system went wrong. One domain draws on several families, and one family appears in several domains, which is why the taxonomy is organised by family.",
+  "cwe_pillars": [
+    {"cwe": "CWE-284", "name": "Improper Access Control", "families": ["F9", "F13"]},
+    {"cwe": "CWE-435", "name": "Improper Interaction Between Multiple Correctly-Behaving Entities", "families": ["F5", "F6"]},
+    {"cwe": "CWE-664", "name": "Improper Control of a Resource Through its Lifetime", "families": ["F1", "F2", "F7", "F10"]},
+    {"cwe": "CWE-682", "name": "Incorrect Calculation", "families": ["F3"]},
+    {"cwe": "CWE-691", "name": "Insufficient Control Flow Management", "families": ["F12", "F6"]},
+    {"cwe": "CWE-693", "name": "Protection Mechanism Failure", "families": ["F8", "F11"]},
+    {"cwe": "CWE-697", "name": "Incorrect Comparison", "families": ["F12", "F4"]},
+    {"cwe": "CWE-703", "name": "Improper Check or Handling of Exceptional Conditions", "families": ["F12", "F7"]},
+    {"cwe": "CWE-707", "name": "Improper Neutralization", "families": ["F5", "F14"]},
+    {"cwe": "CWE-710", "name": "Improper Adherence to Coding Standards", "families": ["F12"]}
+  ],
+  "cwe_pillars_note": "Hand-written crosswalk to the ten top-level pillars of MITRE's CWE research view. CWE is a graph, not a partition, so this shows that every pillar is reachable from at least one family; it is not a one-to-one mapping."
+}

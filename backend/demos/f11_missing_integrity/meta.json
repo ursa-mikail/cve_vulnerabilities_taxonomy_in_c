@@ -1,0 +1,22 @@
+{
+  "family": "F11",
+  "family_name": "Supply Chain, Configuration and Integrity",
+  "language": "python",
+  "subcategory": "Missing integrity or authenticity verification",
+  "csv_subcategory": "Missing integrity or authenticity verification",
+  "cwe": "CWE-494",
+  "title": "Update installed without verifying its integrity",
+  "root_cause": "Code or data is fetched from a place the program does not control and then trusted without checking that it is the artifact the vendor published. Transport security alone only protects the pipe, not the origin (mirrors, CDNs, package registries and build servers can all be compromised). The same gap underlies malicious packages, tampered firmware updates and unsigned plugins.",
+  "defenses": [
+    "Verify a digital signature (Ed25519, Sigstore, platform code signing) from a key the client already trusts, before executing or loading anything.",
+    "Pin dependency versions with lock files and checksums; install with hash checking (pip --require-hashes, npm ci).",
+    "Deliver the manifest or digest over a different, authenticated channel than the payload.",
+    "Protect rollback: refuse older signed versions with known flaws.",
+    "Build reproducibly and publish provenance (SLSA attestations)."
+  ],
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

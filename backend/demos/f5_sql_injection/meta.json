@@ -1,0 +1,22 @@
+{
+  "family": "F5",
+  "family_name": "Injection and Input Interpretation",
+  "language": "python",
+  "subcategory": "SQL injection",
+  "csv_subcategory": "SQL injection",
+  "cwe": "CWE-89",
+  "title": "SQL injection through string-built queries",
+  "root_cause": "The program builds a SQL statement by pasting user text into it, so the database cannot tell where the developer's query ends and the attacker's input begins. The quote character in the input closes the string literal and the rest is parsed as SQL. The same mistake exists in every language and every database driver that offers string concatenation.",
+  "defenses": [
+    "Use parameterized queries / prepared statements: the SQL text is fixed and values are bound separately.",
+    "Use an ORM or query builder for the common cases, but never concatenate into its raw-SQL escape hatches.",
+    "Give the application's database account only the privileges it needs, so a successful injection reaches little.",
+    "Validate shape (type, length, allow-list) as defence in depth, never as the only defence.",
+    "Do not rely on escaping functions or blocklists of quote characters."
+  ],
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "VERDICT",
+    "fixed": "VERDICT"
+  }
+}

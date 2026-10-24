@@ -1,0 +1,23 @@
+{
+  "family": "F4",
+  "family_name": "Type and Data Representation Errors",
+  "language": "c",
+  "subcategory": "Type confusion",
+  "csv_subcategory": "Type confusion",
+  "cwe": "CWE-843",
+  "title": "Type confusion: a note treated as a user object",
+  "root_cause": "The program is told what an object is by something the attacker controls (a message field, a JavaScript value, a cast on an untrusted pointer) instead of by the object itself. It then reads the object's bytes under a different layout, so attacker-chosen data lands where a pointer or length is expected. This is the dominant bug class in browser JavaScript engines (V8 and others) and appears in any runtime that mixes typed layouts.",
+  "defenses": [
+    "Derive the type from a tag stored inside the object (or from the language's own type system) and check it before every cast.",
+    "Prefer tagged unions / sum types / sealed variants that the compiler checks (Rust enums, Java sealed classes).",
+    "Never let a message field choose which struct layout is applied to existing memory.",
+    "Use compiler type-safety flags and sanitizers (CFI, -fsanitize=undefined, ASan) in test builds.",
+    "Fuzz parsers and engine entry points; type confusion is easy to reach and hard to review by eye."
+  ],
+  "sanitize": "address,undefined",
+  "timeout_s": 5,
+  "expect": {
+    "vulnerable": "SANITIZER",
+    "fixed": "refused"
+  }
+}

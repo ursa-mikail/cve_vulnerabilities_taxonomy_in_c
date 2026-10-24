@@ -1,7 +1,8 @@
 FROM node:20-slim
 
+# gcc/g++ for the C demos (with sanitizers), python3 for the Python demos. Node itself runs the JavaScript demos.
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends gcc g++ coreutils \
+    && apt-get install -y --no-install-recommends gcc g++ coreutils python3 \
     && rm -rf /var/lib/apt/lists/*
 
 # node:20-slim already ships a non-root user 'node' (UID/GID 1000) -> reuse it.
@@ -10,7 +11,7 @@ RUN apt-get update \
 WORKDIR /app
 COPY package.json ./
 RUN npm install --omit=dev
-COPY server.js runner.js ./
+COPY server.js runner.js facets.js taxonomy.json ./
 COPY demos ./demos
 COPY analytics ./analytics
 
