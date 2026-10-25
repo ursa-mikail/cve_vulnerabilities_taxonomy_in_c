@@ -130,7 +130,7 @@ export default function ExplorePage({ params: sp, families }) {
                 <>
                   <section className="analytics-section">
                     <h2>Which weakness families?</h2>
-                    <BarChart data={famChartData} height={200} onBarClick={(id) => toggle('family', id)} selectedId={p.family.length === 1 ? p.family[0] : null} />
+                    <BarChart data={famChartData} height={200} onBarClick={(d) => toggle('family', d.id)} selectedId={p.family.length === 1 ? p.family[0] : null} />
                     {res.by_family.find((x) => x.id === 'U0').count > 0 && <p className="section-hint">{res.by_family.find((x) => x.id === 'U0').count.toLocaleString()} more matching CVEs are unclassified (not enough public information).</p>}
                   </section>
 

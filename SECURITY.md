@@ -27,7 +27,7 @@ demonstrate real bugs. Read this before exposing it beyond `localhost`.
   without adding a real isolation layer (gVisor, Firecracker/microVMs, or similar).
 - **Not an arbitrary code runner.** The API only ever runs the fixed files that ship in
   `backend/demos/` (27 demos x vulnerable/fixed = 54 files). There is no endpoint that accepts source
-  code from a request. The filter endpoint (`/api/filter`) only reads a read-only data table and rejects unknown values.
+  code from a request. The data endpoints (`/api/filter`, `/api/browse`, `/api/suggest`, `/api/browse/export.csv`) only read a read-only table and description store, validate every value against the known dictionaries (unknown values are a 400), cap page size at 100 and exports at 20,000 rows, limit the description search to 8 words / 200 characters (matched as plain substrings, never as a regular expression), and never build a file path or command from a request.
 - **Interpreted demos have fewer per-process limits than C demos.** `ulimit -v` is not applied to Node
   (V8 reserves large address ranges); Node gets `--max-old-space-size=96`, and both interpreters are bounded by the timeout,
   the container's `pids_limit`, `mem_limit` and `cpus`.

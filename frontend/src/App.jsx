@@ -6,9 +6,10 @@ import Home from './components/Home.jsx';
 import AnalyticsPage from './components/AnalyticsPage.jsx';
 import ExplorePage from './components/ExplorePage.jsx';
 import CoveragePage from './components/CoveragePage.jsx';
+import BrowsePage from './components/BrowsePage.jsx';
 
 // Routes live in the URL hash so every view is bookmarkable:
-//   #/  #/demo/<id>  #/analytics  #/explore?os=linux&lang=c_cpp  #/coverage  #/about
+//   #/  #/demo/<id>  #/analytics  #/explore?os=linux&lang=c_cpp  #/browse?network=tls&vendor=Cisco  #/coverage  #/about
 export function parseHash() {
   const raw = window.location.hash.replace(/^#/, '');
   const [h, query = ''] = raw.split('?');
@@ -18,6 +19,7 @@ export function parseHash() {
   if (h === '/analytics') return { route: 'analytics' };
   if (h === '/coverage') return { route: 'coverage' };
   if (h === '/explore') return { route: 'explore', params: new URLSearchParams(query) };
+  if (h === '/browse') return { route: 'browse', params: new URLSearchParams(query) };
   return { route: 'home' };
 }
 
@@ -42,6 +44,7 @@ function About({ taxonomy }) {
       <h2>What the tabs do</h2>
       <ul>
         <li><strong>Analytics</strong>: how many CVEs fall in each family, over time, by severity, vendor and product.</li>
+        <li><strong>Browse</strong>: the exhaustive view. Tick boxes for operating system, CPU architecture, language, system type, delivery, file format, hardware, network protocol, attack vector, impact, sector, weakness family, severity and years, or type in the search box (it autocompletes filters, weaknesses, CWEs, vendors, products and CVE IDs). It charts the matching set and lists the CVEs with descriptions, paged, with CSV export.</li>
         <li><strong>Explore</strong>: filter the CVE record by operating system, programming language, system type, family, year, and evidence strength, and jump to the demos that match.</li>
         <li><strong>Coverage</strong>: does the taxonomy cover all of CVE? Every subcategory, how many CVEs it holds, whether a demo exists, and how strong the evidence behind each mapping is.</li>
       </ul>
@@ -78,6 +81,7 @@ export default function App() {
         <a href="#/" className="brand">CVE Weakness Taxonomy Lab</a>
         <nav className="topnav">
           {nav('analytics', 'Analytics')}
+          {nav('browse', 'Browse')}
           {nav('explore', 'Explore')}
           {nav('coverage', 'Coverage')}
           {nav('about', 'How this works')}
@@ -98,6 +102,7 @@ export default function App() {
           {!error && families && route.route === 'about' && <About taxonomy={taxonomy} />}
           {!error && families && route.route === 'analytics' && <AnalyticsPage families={families} />}
           {!error && families && route.route === 'explore' && <ExplorePage params={route.params} families={families} />}
+          {!error && families && route.route === 'browse' && <BrowsePage params={route.params} families={families} />}
           {!error && families && route.route === 'coverage' && <CoveragePage />}
           {!error && families && route.route === 'demo' && <DemoView demoId={route.id} families={families} />}
         </main>

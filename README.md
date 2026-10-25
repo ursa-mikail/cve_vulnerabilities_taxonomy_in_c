@@ -306,7 +306,19 @@ Requires Docker and Docker Compose (the `docker compose` plugin, not the old `do
   that exemplify it, and a table showing that *domains* (web, native, mobile, cloud, IoT/ICS, AI,
   supply chain) cut across families.
 - **Analytics**: counts per family over time, by severity, vendor and product, with drill-down.
-- **Explore**: filter all CVEs by **operating system**, **programming language**, **system type**,
+- **Browse**: the exhaustive view. Tick boxes across 13 groups (179 filters: operating system, CPU
+  architecture, programming language, system type, delivery/deployment, file format, hardware/device class,
+  network protocol, **cryptographic algorithm** (AES, RSA, SHA-1/MD5, ChaCha, KDFs, PRNGs, TLS ciphers...),
+  **algorithm / data structure** (compression, regex backtracking, hash collisions, recursion...), attack vector,
+  impact, sector) plus weakness family, severity, evidence and years.
+  A **search box autocompletes** filter values, weakness subcategories, CWEs, vendors, products and CVE IDs
+  (`aes`, `sql inj`, `cisco`, `CWE-79`, `cve-2021-4422`). **Ctrl+Enter** (or the last suggestion) searches the
+  **description text** instead: every word must appear, `"quoted phrases"` must appear as written, case-insensitive
+  substring match over the first 1,200 characters. It **charts the matching set** (families, trend, severity, and
+  the distribution of every group) and **lists the CVEs** with descriptions, newest or oldest first, paged,
+  with CSV export (up to 20,000 rows). Every state is a shareable URL, e.g.
+  `#/browse?crypto=aes&text=padding+oracle` or `#/browse?hardware=router,camera&network=http&vector=unauth&impact=rce`.
+- **Explore**: a compact view of the same engine: filter all CVEs by **operating system**, **programming language**, **system type**,
   weakness family, year range, minimum severity and evidence strength. Chips show live counts; results
   show the families, most common subcategories (each linked to a runnable demo when one exists), top
   CWEs, vendors, trend, severity and a stable sample of matching CVEs. Filters are URL-shareable
@@ -315,16 +327,41 @@ Requires Docker and Docker Compose (the `docker compose` plugin, not the old `do
   size, how strong the evidence behind it is, whether a demo covers it, and a crosswalk to MITRE's ten
   top-level CWE pillars.
 
-### How the Explore filters work (read this before quoting a number)
+### How the filters work (read this before quoting a number)
 
-The CVE record has no "operating system" or "language" field. These facets are **inferred** from vendor,
-product, assigner and description wording (plus short hand-written lists such as WordPress -> PHP). The
-rules are in `tools/facet_rules.py`; nothing is guessed for a CVE that names nothing. Measured coverage:
-about **19%** of records name an operating system, **39%** point at a programming language and **69%** fit
-a system type, so a filter can only see the records that say something. A value like "PHP" means *the
-record points at PHP code*; wording-based rules also have false positives (a description that merely
-mentions a browser is counted as "browser"). One CVE can carry several values per group. Counts were
-cross-checked against an independent recomputation.
+The CVE record has no "operating system", "language", "hardware" or "protocol" field. Every filter in Browse and
+Explore is **inferred** from the vendor, product, assigner and description wording (plus a few short hand-written
+lists such as WordPress -> PHP). Free-text search is the exception: it matches the description directly. The rules are in `tools/facet_rules.py`; **a CVE that names nothing is left out of that
+group, never guessed**. Measured coverage, i.e. the share of the 394,234 non-rejected records that match at least one
+value in the group:
+
+| Tab group | Filter group | Values | Records naming something |
+|---|---|---:|---:|
+| Platform | Operating system / platform | 11 | 19.3% |
+| Software | Programming language / runtime | 17 | 39.5% |
+| Software | System type | 16 | 69.4% |
+| Hardware | Hardware / device class | 22 | 11.6% |
+| Platform | CPU architecture | 10 | 1.2% |
+| Network | Network protocol / technology | 23 | 17.1% |
+| Attack | Attack vector / precondition (as worded) | 12 | 48.4% |
+| Attack | Impact (as worded) | 10 | 50.2% |
+| Software | File format / data parser | 11 | 13.2% |
+| Software | How it is delivered / deployed | 12 | 26.3% |
+| Sector | Sector / domain | 8 | 4.7% |
+| Cryptography & algorithms | Cryptographic algorithm / primitive | 18 | 2.7% |
+| Cryptography & algorithms | Algorithm / data structure | 9 | 3.6% |
+
+What that means in practice:
+
+- A filter can only see records that say something. About 8 in 10 records do not name an operating system, so
+  "Linux" finds the records that mention Linux, not every Linux bug.
+- A record can carry several values per group (a WordPress plugin bug that also mentions Linux).
+- "Attack vector" and "impact" report what the **text claims** ("remote attackers", "execute arbitrary code"), not a
+  verified CVSS vector, and impact words are exactly the kind of evidence the family mapping deliberately ignores.
+- Wording-based rules have false positives; I fixed the worst ones found by sampling (for example a RabbitMQ
+  "streaming broker" was counted as gaming, "NAS" in 5G was counted as storage), and more remain.
+- Counts are exact for the rules as written: the API was cross-checked against an independent pandas computation
+  (OR within a group, AND across groups, vendor/CWE/severity/year filters, sibling facet counts).
 
 ### How complete is the CVE mapping?
 
@@ -352,7 +389,7 @@ Everything shipped in the dashboard can be rebuilt from the mapping CSV:
 ```bash
 python3 tools/repair_mapping.py  cve_family_mapping_v3.csv cve_family_mapping_v4.csv repair_changelog_v3_to_v4.csv
 python3 tools/build_analytics.py cve_family_mapping_v4.csv backend/analytics/analytics.json
-(cd tools && npm install) && python3 tools/build_facets.py cve_family_mapping_v4.csv backend/analytics
+(cd tools && npm install) && python3 tools/build_facets.py cve_family_mapping_v4.csv backend/analytics   # needs node; ~2 min
 ```
 
 `docs/MAPPING_V4.md` explains what the v3 -> v4 repair changed and why; `repair_changelog_v3_to_v4.csv`
@@ -364,7 +401,7 @@ source of truth for family names, definitions and cross-language notes.
 ```bash
 cd backend && npm test                        # all 27 demos: the bug appears, the fix holds
 cd backend && PORT=4010 node server.js &      # then:
-cd frontend && npm test                       # renders Home / Explore / Coverage / a demo against the live API
+cd frontend && npm test                       # renders Home / Explore / Browse (list, charts, autocomplete) / Coverage / a demo
 ```
 
 ## How to navigate (you will never be lost)
@@ -399,15 +436,16 @@ cve-lab/
   backend/                 Node/Express API that runs the demos and serves the data
     taxonomy.json          single source of truth: families, definitions, domains, CWE pillars
     runner.js              runs C (sanitizers), JavaScript (node) and Python (python3) demos
-    facets.js              live OS / language / system-type filtering
+    facets.js              live filtering over 13 groups, autocomplete, description text search, paged CVE list, CSV export
     test_demos.js          asserts every demo's bug appears and its fix holds
     demos/<id>/
       meta.json            title, language, CWE, CVE-data subcategory, root cause, defenses, expectations
       vulnerable.<c|js|py>
       fixed.<c|js|py>
-    analytics/             analytics.json, facets.bin.gz, facets.meta.json (built by tools/)
+    analytics/             analytics.json, facets.bin.gz + facets.meta.json (fact table), descriptions.blk/.idx
+                           (1,200-char descriptions in gzip blocks, read on demand; ~34 MB) -- all built by tools/
   frontend/                React (Vite) single-page app, served by nginx; `npm test` = render tests
-  tools/                   repair_mapping.py, build_analytics.py, build_facets.py + their rules
+  tools/                   repair_mapping.py, build_analytics.py, build_facets.py, facet_rules.py (the filter rules)
   docs/MAPPING_V4.md       what the v3 -> v4 repair changed, and how it was checked
 ```
 

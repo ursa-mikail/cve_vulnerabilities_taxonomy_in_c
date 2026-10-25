@@ -119,25 +119,69 @@ app.get('/api/facets', (req, res) => {
   res.json(d);
 });
 
-const list = (v) => (v ? String(v).split(',').map((s) => s.trim()).filter(Boolean) : []);
-app.get('/api/filter', (req, res) => {
-  if (!facets.available) return res.status(404).json({ error: 'facet data not available' });
-  try {
-    const q = req.query;
-    const num = (v) => (v === undefined || v === '' ? undefined : parseInt(v, 10));
-    const result = facets.query({
-      os: list(q.os), lang: list(q.lang), system: list(q.system), family: list(q.family),
-      from: num(q.from), to: num(q.to), sev: q.sev, evidence: q.evidence,
-    });
-    // attach runnable demos to the top subcategories so a filter leads straight to something to run
-    result.top_subcategories = result.top_subcategories.map((s) => ({ ...s, demos: demosFor(s.family, s.name) }));
-    const seen = new Set();
-    result.related_demos = result.top_subcategories.flatMap((s) => s.demos).filter((d) => !seen.has(d.id) && seen.add(d.id));
-    res.json(result);
-  } catch (e) {
-    res.status(400).json({ error: String((e && e.message) || e) });
+const list = (v) => (v ? String(v).split(',').map((x) => x.trim()).filter(Boolean) : []);
+const all = (v) => (Array.isArray(v) ? v : v ? [v] : []);        // repeated params: names may contain commas
+const num = (v) => (v === undefined || v === '' ? undefined : parseInt(v, 10));
+
+// One parser for every endpoint: dimension keys come from the data (os, lang, system, hardware, ...).
+function parseQuery(q) {
+  const d = facets.describe();
+  const dims = {};
+  for (const k of d.dim_order) dims[k] = list(q[k]);
+  return {
+    dims, family: list(q.family), cwe: list(q.cwe), sevs: list(q.sevs), sev: q.sev || undefined, evidence: q.evidence || undefined,
+    vendor: all(q.vendor), product: all(q.product), sub: all(q.sub), cve: all(q.cve),
+    text: typeof q.text === 'string' ? q.text.trim().slice(0, 200) : '',
+    from: num(q.from), to: num(q.to), order: q.order === 'old' ? 'old' : 'new', page: num(q.page), size: num(q.size),
+  };
+}
+
+function withDemos(result) {
+  delete result._idx;
+  result.top_subcategories = result.top_subcategories.map((s) => ({ ...s, demos: demosFor(s.family, s.name) }));
+  const seen = new Set();
+  result.related_demos = result.top_subcategories.flatMap((s) => s.demos).filter((d) => !seen.has(d.id) && seen.add(d.id));
+  return result;
+}
+
+function guarded(fn) {
+  return (req, res) => {
+    if (!facets.available) return res.status(404).json({ error: 'facet data not available' });
+    try { fn(req, res); } catch (e) { res.status(400).json({ error: String((e && e.message) || e) }); }
+  };
+}
+
+// Compact view used by the Explore tab (no CVE list).
+app.get('/api/filter', guarded((req, res) => {
+  const p = parseQuery(req.query);
+  p.size = 0;
+  res.json(withDemos(facets.query(p)));
+}));
+
+// Full view used by the Browse tab: charts data + one page of CVEs with descriptions.
+app.get('/api/browse', guarded((req, res) => {
+  const p = parseQuery(req.query);
+  p.size = Math.min(p.size || 25, 100);
+  res.json(withDemos(facets.query(p)));
+}));
+
+app.get('/api/suggest', guarded((req, res) => {
+  res.json({ suggestions: facets.suggest(req.query.q, Math.min(num(req.query.limit) || 14, 30)) });
+}));
+
+const csvCell = (v) => { const s = v == null ? '' : String(v); return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+app.get('/api/browse/export.csv', guarded((req, res) => {
+  const p = parseQuery(req.query);
+  p.size = 0;
+  const result = facets.query(p);
+  res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+  res.setHeader('Content-Disposition', 'attachment; filename="cve-selection.csv"');
+  res.write('cve_id,family,subcategory,cwe,severity,evidence,vendor,product,description\n');
+  for (const r of facets.exportRows(result, p.order, 20000)) {
+    res.write([r.id, r.family, r.subcategory, r.cwe, r.severity, r.evidence, r.vendor, r.product, r.description].map(csvCell).join(',') + '\n');
   }
-});
+  res.end();
+}));
 
 app.get('/api/demo/:id', (req, res) => {
   const d = DEMOS[req.params.id];
